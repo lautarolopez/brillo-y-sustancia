@@ -1,0 +1,15 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use App\Product;
+
+class Sale extends Model
+{
+    protected $guarded = [];
+
+    public function product(){
+        return $this->belongsTo(Product::class, 'product_id');
+    }
+}

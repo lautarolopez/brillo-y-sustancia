@@ -1,0 +1,337 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 9vh;
+}
+.form-container{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+.login{
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 390px;
+    padding: 0 30px;
+    color: #393939;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-form{
+    width: 100%;
+}
+.title{
+    color: #393939;
+    margin: 1rem 0;
+}
+.input-form{
+    margin: 1rem 0;
+    padding: 6px 0;
+}
+.input-form input, label{
+    display: block;
+}
+.input-form input{
+    padding: 7px;
+    width: 100%;
+}
+.input-form label{
+    padding: 8px 0;
+}
+.text-little{
+    font-size: .8rem;
+    font-weight: bold;
+}
+.question-form{
+    color: #90b1f1;
+    text-decoration: none;
+    display: block;
+}
+.btn{
+    margin: 20px 0;
+    text-decoration: none;
+    display: block;
+    padding: 10px 30px;
+    text-align: center;
+    border-radius: 30px;
+    color: #ffffff;
+    background-color: #393939;
+}
+.help-account{
+    text-align: center;
+}
+.help-account a{
+    color: #fd7093;
+    text-decoration: none;
+}
+=======
+nav {
+    background-color: #fff;
+    color: #000;
+    text-transform: uppercase;
+}
+
+.navbar {
+    position: fixed !important;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 0 4px #999;
+}
+
+.navbar-brand{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+}
+
+.navbar-toggler{
+    background-color: #fff;
+    color: #fff; 
+}
+
+.navbar-toggler:hover{
+    background-color: #000;
+    color: #fff;
+    transition: 0.4s linear;
+
+}
+
+nav .btn{
+    color: #000;
+    background-color: #fff;
+    border: solid 1px #000;
+    border-radius: 60px;
+    margin: 0, 15px;
+}
+
+nav .btn:hover {
+    color: #fff;
+    background-color: #000;
+    color: #fff;
+    transition: 0.4s linear;
+}
+
+nav .link-icons{
+    line-height: 45px;
+    text-align: center;
+    font-size: 25px;
+    color: #000;
+    width: 50px;
+    height: 50px;
+}
+
+nav .link-icons:hover{
+    background-color: #000;
+    color: #fff;
+    border-radius: 50%;
+    transition: 0.4s linear;
+}
+
+nav a {
+    color: #000;
+    text-decoration: none;
+}
+
+nav a:hover{
+    color: #fff;
+}
+
+.contact{
+    margin: 0;
+    padding: 80px 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+
+
+.ancho-interior{
+    max-width: 600px;
+    margin: auto;
+    padding: 0, 20px;
+}
+
+.name, .email, .message{
+    background: none;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid;
+    color: #333;
+    padding: 10px 6px;  
+    font-size: 14px;
+    margin-bottom: 40px; 
+}
+
+.name {
+    float: left;
+    width: 270px;
+}
+
+.email {
+    float: right;
+    width: 270px;
+}
+
+.message {
+    min-width: 100%;
+    max-width: 100%;
+}
+
+.contact button{
+    background: none;
+    color: #000;
+    border: solid 1px #000;
+    padding: 12px 40px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: 0.4s linear;
+}
+
+.contact button:hover{
+    background-color: #000;
+    color: #fff;
+}
+
+@media screen and (max-width: 600px){
+    .name, .email{
+        width: 100%;
+    }
+}
+
+
+.social-media a i{
+    transition: 0.3s ease-in; 
+}
+
+.social-media a:hover i{
+    transform: scale(2.2);
+}
+
+@media screen and (max-width: 700px){
+    .name, .email{
+        width: 100%;
+    }
+
+}
+
+
+
+.jumbotron {
+    background-image: url(../images/PrideBackground.jpg);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position-x: right;
+    height: 20vh;
+    padding-top: 4vh;
+    padding-bottom: 4vh;
+}
+.social-media a{
+    display: inline-flex;
+    text-decoration: none;
+    font-size: 40px;
+    width: 70px;
+    height: 70px;
+    color: #000;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0 8px;
+}
+
+@media screen and (max-width: 640px){
+
+     .social-media a{
+        color: #fff;
+        font-size: 60px;
+        width: 60px;
+        height: 60px;
+    }
+
+    .social-media{
+        padding-left: auto;
+    }
+
+    .social-media a:hover i{
+        color: #fff;   
+    }
+}
+
+.faq{
+    font-family: 'Montserrat', sans-serif;
+    line-height: 35px;
+    text-transform: uppercase;
+    padding-top: 15vh;
+}
+
+
+
+footer {
+    border-top: solid 1px #000;
+    padding-top: 5vh;
+}
+
+.social-media-footer a i{
+    transition: 0.3s ease-in; 
+}
+
+.social-media-footer a:hover i{
+    transform: scale(2.2);
+}
+
+.social-media-footer a{
+    display: inline-flex;
+    text-decoration: none;
+    font-size: 30px;
+    width: 70px;
+    height: 70px;
+    color: #000;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0 8px;
+}
+
+.contact h2{
+    font-size: 32px;
+    color: #000;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 400;
+}
+
+/*Estilos profile.php*/
+.hero-profile{
+    width: 100%;
+    height: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-color: #e91e633b;;
+}
+.hero-profile h2{
+    padding-top: 15px;
+    text-transform: capitalize;
+}
+.img-profile img{
+    max-width: 100%;
+    width: 150px;
+}
+.information{
+    background-color: grey;
+    height: 400px;
+}
+.row{
+    margin-right: auto;
+    margin-left: auto;
+}
