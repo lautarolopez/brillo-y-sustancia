@@ -18,7 +18,7 @@
                             Categorías
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="<?php echo e(route('products.index')); ?>">Productos</a>
+                            <a class="dropdown-item" href="<?php echo e(route('products.index')); ?>">Todos</a>
                             <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <a class="dropdown-item" href="<?php echo e(route('products.index.category', $category->name)); ?>"><?php echo e($category->name); ?></a>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -34,8 +34,8 @@
                             Cerrar sesión    
                         </a>   
                     <?php else: ?> 
-                        <a class="btn my-2 my-sm-0 mx-1" href="<?php echo e(route('login')); ?>">Ingresá</a>
-                        <a class="btn my-2 my-sm-0 mx-1" href="<?php echo e(route('register')); ?>">Registrate</a>
+                        <a class="btn my-2 mx-1" href="<?php echo e(route('login')); ?>">Ingresá</a>
+                        <a class="btn my-2 mx-1" href="<?php echo e(route('register')); ?>">Registrate</a>
                     <?php endif; ?>
                 </div>
             </div>

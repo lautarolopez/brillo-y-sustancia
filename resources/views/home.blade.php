@@ -5,9 +5,12 @@
 @section('content')
 
     <section class="social-container">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
+        <img src="../storage/PrideBackground.png" alt="pride-background">
+        <span>
+            <a class="fb" href="#"><i class="fab fa-facebook-f"></i></a>
+            <a class="tw" href="#"><i class="fab fa-twitter"></i></a>
+            <a class="ig" href="#"><i class="fab fa-instagram"></i></a>
+        </span>
     </section>
 
     <!--FIN JUMBOTRON REDES SOCIALES -->
@@ -39,8 +42,8 @@
                 @csrf
                 <input name="name" type="text" class="name" placeholder="Tu nombre" value= {{ old('name')}}>
                 <input name="email" type="email" class="email" placeholder="Tu email" value= {{ old('email')}}>
-                <input name= "message" type="text" rows="1" placeholder="Tu mensaje" class="message" value= {{ old('message')}}></input>
-                <button type="submit">Enviar</button>
+                <textarea name= "message" placeholder="Tu mensaje" class="message" value= {{ old('message')}}></textarea>
+                <button type="submit" class="btn">Enviar</button>
             </form>
         </article>
     </section>

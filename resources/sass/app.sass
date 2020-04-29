@@ -1,0 +1,224 @@
+@use 'variables.sass'
+@import 'mixins.sass'
+@import 'partials/homeHero.sass'
+@import 'partials/headbar.sass'
+
+*
+    padding: 0
+    margin: 0
+    box-sizing: border-box
+
+
+footer
+    margin-top: 50px
+
+body 
+    font-family: variables.$primary-font
+    padding-top: 40px + 16px
+    @media (min-width: 992px)
+        padding-top: 63px + 8px
+
+.form-container 
+    display: flex
+    justify-content: center
+    padding: 1rem
+
+.login 
+    background-color: #ffffff
+    width: 100%
+    max-width: 390px
+    padding: 0 30px
+    color: #393939
+    display: flex
+    justify-content: center
+    align-items: center
+
+.login-form 
+    width: 100%
+
+.title 
+    color: #393939
+    margin: 1rem 0
+
+.input-form 
+    margin: 1rem 0
+    padding: 6px 0
+
+.input-form 
+    input,
+    label 
+        display: block
+
+.input-form 
+    input 
+        padding: 7px
+        width: 100%
+
+.input-form 
+    label
+        padding: 8px 0
+
+.text-little 
+    font-size: 0.8rem
+    font-weight: bold
+
+.question-form
+    color: #90b1f1
+    text-decoration: none
+    display: block
+
+.btn 
+    +customTextButtons
+
+.help-account 
+    text-align: center
+
+.help-account 
+    a
+        color: #fd7093
+        text-decoration: none
+
+
+.faq 
+    font-family: "Montserrat", sans-serif
+    line-height: 35px
+    text-transform: uppercase
+
+.contact
+    margin: 0
+    padding: 80px 0
+    box-sizing: border-box
+    font-family: "Montserrat", sans-serif
+    text-align: center
+    form
+        button
+            margin: auto
+
+.ancho-interior
+    max-width: 600px
+    margin: auto
+    padding: 0, 20px
+
+.name,
+.email,
+.message 
+    background: none
+    border: none
+    outline: none
+    border-bottom: 1px solid
+    color: #333
+    padding: 10px 6px
+    font-size: 14px
+    margin-bottom: 40px
+
+.name
+    float: left
+    width: 270px
+
+.email
+    float: right
+    width: 270px
+
+.name-error
+    color: red
+    float: left
+    width: 270px
+
+.email-error
+    color: red
+    float: right
+    width: 270px
+
+
+.message-error
+    color: red
+    float: center
+    width: 100%
+    text-overflow: ellipsis
+    overflow: hidden
+
+.message
+    min-width: 100%
+    max-width: 100%
+
+
+@media (max-width: 700px)
+    .contact 
+        form
+            display: flex
+            flex-direction: column
+            align-items: center
+            justify-content: center
+    .name,
+    .email
+        width: 90%
+        margin: auto
+    .message
+        min-width: 90%
+        max-width: 90%
+    
+
+footer 
+    border-top: solid 1px #000
+    padding-top: 5vh
+
+.social-media-footer 
+    a
+        i
+            transition: 0.3s ease-in
+
+.social-media-footer 
+    a:hover 
+        i 
+            transform: scale(1.5)
+
+.social-media-footer 
+    a
+        display: inline-flex
+        text-decoration: none
+        font-size: 30px
+        width: 70px
+        height: 70px
+        color: #000
+        justify-content: center
+        align-items: center
+        position: relative
+        margin: 0 8px
+
+.contact 
+    h2 
+        font-size: 32px
+        color: #000
+        margin-bottom: 40px
+        text-transform: uppercase
+        letter-spacing: 4px
+        font-weight: 400
+
+
+/*Estilos profile.php*/
+.hero-profile 
+    width: 100%
+    height: 270px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    text-align: center
+    background-color: #e91e633b
+
+.hero-profile 
+    h2 
+        padding-top: 15px
+        text-transform: capitalize
+
+.img-profile 
+    img 
+        max-width: 100%
+        width: 150px
+
+.information
+    background-color: grey
+    height: 400px
+
+.row
+    margin-right: auto
+    margin-left: auto

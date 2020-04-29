@@ -18,7 +18,7 @@
                             Categorías
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('products.index')}}">Productos</a>
+                            <a class="dropdown-item" href="{{ route('products.index')}}">Todos</a>
                             @foreach ($categories as $category)
                                 <a class="dropdown-item" href="{{ route('products.index.category', $category->name)}}">{{ $category->name }}</a>
                             @endforeach
@@ -34,8 +34,8 @@
                             Cerrar sesión    
                         </a>   
                     @else 
-                        <a class="btn my-2 my-sm-0 mx-1" href="{{ route('login') }}">Ingresá</a>
-                        <a class="btn my-2 my-sm-0 mx-1" href="{{ route('register') }}">Registrate</a>
+                        <a class="btn my-2 mx-1" href="{{ route('login') }}">Ingresá</a>
+                        <a class="btn my-2 mx-1" href="{{ route('register') }}">Registrate</a>
                     @endauth
                 </div>
             </div>
