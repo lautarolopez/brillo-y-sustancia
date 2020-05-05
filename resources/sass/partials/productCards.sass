@@ -1,0 +1,76 @@
+section.products-container
+    margin-top: 60px
+    h2
+        font-size: 32px
+        color: variables.$primary-color
+        margin-bottom: 40px
+        text-transform: uppercase
+        letter-spacing: 4px
+        text-align: center
+        font-weight: 400
+    ul
+        display: flex
+        align-items: center
+        justify-content: center
+        flex-wrap: wrap
+        li
+            list-style: none
+            padding: 0
+            margin: 3% 1%
+            width: 30%
+            @media ( max-width: 1200px )
+                margin: 3% 3%
+                width: 42%
+            @media ( max-width: 700px)
+                margin: 5% 5%
+                width: 90%
+
+article.product-card
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    height: 100%
+    width: 100%
+    color: black
+    font-family: variables.$primary-font
+    z-index: 40
+    box-shadow: -1px 3px 4px #999, 1px 3px 4px #999
+    
+    img
+        width: 100%
+    a
+        width: 100%
+        color: black
+        text-decoration: none
+        align-self: flex-start
+        justify-self: flex-end
+    h6
+        font-size: 1.5rem
+        text-align: center
+        text-transform: uppercase
+    p
+        margin: 0 20px
+    span.card-footer
+        background-color: #fff
+        display: flex
+        align-items: center
+        justify-content: space-between
+        a, a>i, i
+            width: 25px
+            height: 25px
+        p, i, a
+            font-size: 20px
+            margin: 0
+        p
+            font-weight: bold
+
+
+div.product-info
+        transition: 0.2s ease-in
+        height: 0
+        overflow: scroll
+
+
+div.product-collapse
+    height: 250px !important

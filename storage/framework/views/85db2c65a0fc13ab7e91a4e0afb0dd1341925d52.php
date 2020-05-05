@@ -16,14 +16,12 @@
         <?php echo $__env->make('partials.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <?php echo $__env->yieldSection(); ?>
     <!-- JUMBOTRON REDES SOCIALES -->
-    <div class="container-fliud content">
-        <?php echo $__env->yieldContent('content'); ?>
-
-
-        <?php $__env->startSection('footer'); ?>
+    <main class="container-fliud content">
+        <?php echo $__env->yieldContent('content'); ?>       
+    </main>
+    <?php $__env->startSection('footer'); ?>
             <?php echo $__env->make('partials.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <?php echo $__env->yieldSection(); ?>
-    </div>
     <?php $__env->startSection('scripts'); ?>
         <?php echo $__env->make('partials.scripts_js', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <?php echo $__env->yieldSection(); ?>

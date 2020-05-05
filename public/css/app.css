@@ -165,81 +165,160 @@ nav .link-icons:hover {
   text-decoration: none;
 }
 
+section.products-container {
+  margin-top: 60px;
+}
+
+section.products-container h2 {
+  font-size: 32px;
+  color: #2d3436;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-align: center;
+  font-weight: 400;
+}
+
+section.products-container ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+section.products-container ul li {
+  list-style: none;
+  padding: 0;
+  margin: 3% 1%;
+  width: 30%;
+}
+
+@media (max-width: 1200px) {
+  section.products-container ul li {
+    margin: 3% 3%;
+    width: 42%;
+  }
+}
+
+@media (max-width: 700px) {
+  section.products-container ul li {
+    margin: 5% 5%;
+    width: 90%;
+  }
+}
+
+article.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  color: black;
+  font-family: "Montserrat", sans-serif;
+  z-index: 40;
+  box-shadow: -1px 3px 4px #999, 1px 3px 4px #999;
+}
+
+article.product-card img {
+  width: 100%;
+}
+
+article.product-card a {
+  width: 100%;
+  color: black;
+  text-decoration: none;
+  align-self: flex-start;
+  justify-self: flex-end;
+}
+
+article.product-card h6 {
+  font-size: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+article.product-card p {
+  margin: 0 20px;
+}
+
+article.product-card span.card-footer {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+article.product-card span.card-footer a,
+article.product-card span.card-footer a > i,
+article.product-card span.card-footer i {
+  width: 25px;
+  height: 25px;
+}
+
+article.product-card span.card-footer p,
+article.product-card span.card-footer i,
+article.product-card span.card-footer a {
+  font-size: 20px;
+  margin: 0;
+}
+
+article.product-card span.card-footer p {
+  font-weight: bold;
+}
+
+div.product-info {
+  transition: 0.2s ease-in;
+  height: 0;
+  overflow: scroll;
+}
+
+div.product-collapse {
+  height: 250px !important;
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-footer {
-  margin-top: 50px;
-}
-
-body {
+main {
+  min-height: calc( 100vh - 79px - 190.5px );
   font-family: "Montserrat", sans-serif;
   padding-top: 56px;
 }
 
 @media (min-width: 992px) {
-  body {
+  main {
     padding-top: 71px;
   }
 }
 
-.form-container {
-  display: flex;
-  justify-content: center;
-  padding: 1rem;
+footer {
+  border-top: solid 1px #000;
+  padding-top: 5vh;
 }
 
-.login {
-  background-color: #ffffff;
-  width: 100%;
-  max-width: 390px;
-  padding: 0 30px;
-  color: #393939;
-  display: flex;
+.social-media-footer a i {
+  transition: 0.3s ease-in;
+}
+
+.social-media-footer a:hover i {
+  transform: scale(1.5);
+}
+
+.social-media-footer a {
+  display: inline-flex;
+  text-decoration: none;
+  font-size: 30px;
+  width: 70px;
+  height: 70px;
+  color: #000;
   justify-content: center;
   align-items: center;
-}
-
-.login-form {
-  width: 100%;
-}
-
-.title {
-  color: #393939;
-  margin: 1rem 0;
-}
-
-.input-form {
-  margin: 1rem 0;
-  padding: 6px 0;
-}
-
-.input-form input,
-.input-form label {
-  display: block;
-}
-
-.input-form input {
-  padding: 7px;
-  width: 100%;
-}
-
-.input-form label {
-  padding: 8px 0;
-}
-
-.text-little {
-  font-size: 0.8rem;
-  font-weight: bold;
-}
-
-.question-form {
-  color: #90b1f1;
-  text-decoration: none;
-  display: block;
+  position: relative;
+  margin: 0 8px;
 }
 
 .btn {
@@ -261,13 +340,93 @@ body {
   text-decoration: none;
 }
 
-.help-account {
-  text-align: center;
+.login-form,
+.register-form,
+.passwords-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 25px;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
 }
 
-.help-account a {
-  color: #fd7093;
+.login-form h2,
+.register-form h2,
+.passwords-form h2 {
+  font-size: 32px;
+  color: #2d3436;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-align: center;
+  font-weight: 400;
+}
+
+.login-form button,
+.register-form button,
+.passwords-form button {
+  color: #2d3436;
+  margin: 0 3px;
+  transition: 0.4s linear;
+  background: none;
+  text-align: center;
+  border: solid 1px #2d3436;
+  padding: 12px 40px;
+  text-transform: uppercase;
+  font-size: 14px;
+  border-radius: 50px;
+  margin-bottom: 40px;
+}
+
+.login-form button:hover,
+.register-form button:hover,
+.passwords-form button:hover {
+  background-color: #2d3436;
+  color: #fff;
   text-decoration: none;
+}
+
+.login-form input,
+.register-form input,
+.passwords-form input {
+  background: none;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid;
+  color: #333;
+  padding: 10px 6px;
+  font-size: 1rem;
+  margin-bottom: 40px;
+}
+
+.login-form a,
+.register-form a,
+.passwords-form a {
+  color: #2d3436;
+}
+
+@media (min-width: 1150px) {
+  .login-form input,
+  .register-form input,
+  .passwords-form input {
+    width: 25%;
+  }
+}
+
+.login-form input#remember,
+.register-form input#remember,
+.passwords-form input#remember {
+  margin-bottom: 0;
+  width: auto;
+}
+
+@media (min-width: 900px) {
+  .passwords-form {
+    padding-top: 20vh;
+  }
 }
 
 .faq {
@@ -360,32 +519,6 @@ body {
     min-width: 90%;
     max-width: 90%;
   }
-}
-
-footer {
-  border-top: solid 1px #000;
-  padding-top: 5vh;
-}
-
-.social-media-footer a i {
-  transition: 0.3s ease-in;
-}
-
-.social-media-footer a:hover i {
-  transform: scale(1.5);
-}
-
-.social-media-footer a {
-  display: inline-flex;
-  text-decoration: none;
-  font-size: 30px;
-  width: 70px;
-  height: 70px;
-  color: #000;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  margin: 0 8px;
 }
 
 .contact h2 {

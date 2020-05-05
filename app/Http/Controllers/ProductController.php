@@ -11,13 +11,19 @@ class ProductController extends Controller
 {
     public function index(){
         $products = Product::get();
-        return view('products.index', compact('products'));
+        return view('products.index', [
+            'products' => $products,
+            'category' => 'Productos'
+        ]);
     }
 
     public function categoryIndex($category){
         $category_found = Category::where('name', '=', $category)->get()[0];
         $products = Product::where('category_id', '=', $category_found->id)->get();
-        return view('products.index', compact('products'));
+        return view('products.index', [
+            'products' => $products,
+            'category' => $category,
+        ]);
     }
 
     public function show(Product $product){

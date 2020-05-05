@@ -16,14 +16,12 @@
         @include('partials.header')
     @show
     <!-- JUMBOTRON REDES SOCIALES -->
-    <div class="container-fliud content">
-        @yield('content')
-
-
-        @section('footer')
+    <main class="container-fliud content">
+        @yield('content')       
+    </main>
+    @section('footer')
             @include('partials.footer')
         @show
-    </div>
     @section('scripts')
         @include('partials.scripts_js')
     @show

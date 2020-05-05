@@ -1,28 +1,20 @@
 @extends('layouts.main_layout')
 
+@section('title', 'Verificá tu correo')
+
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Verify Your Email Address') }}</div>
+    {{ __('Before proceeding, please check your email for a verification link.') }}
+    {{ __('If you did not receive the email') }},
+    <form class="passwords-form" method="POST" action="{{ route('verification.resend') }}">
+        @csrf
 
-                <div class="card-body">
-                    @if (session('resent'))
-                        <div class="alert alert-success" role="alert">
-                            {{ __('A fresh verification link has been sent to your email address.') }}
-                        </div>
-                    @endif
+        <h2>Verificá tu correo electrónico</h2>
 
-                    {{ __('Before proceeding, please check your email for a verification link.') }}
-                    {{ __('If you did not receive the email') }},
-                    <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
-                        @csrf
-                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('click here to request another') }}</button>.
-                    </form>
-                </div>
+        @if (session('resent'))
+            <div class="alert alert-success" role="alert">
+                Se envió un link de verificación a tu correo electrónico.
             </div>
-        </div>
-    </div>
-</div>
+        @endif
+        <button type="submit" class="btn">Enviar otro</button>
+    </form>
 @endsection
