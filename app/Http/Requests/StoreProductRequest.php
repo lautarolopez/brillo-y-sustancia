@@ -29,8 +29,20 @@ class StoreProductRequest extends FormRequest
             'price' => 'required',
             'stock' => 'required',
             'category_id' => 'required',
-            'url' => 'required',
             'image' => 'required|image'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Necesitamos el nombre del producto!',
+            'description.required' => 'Necesitamos una descripción del producto!',
+            'price.required' => 'Necesitamos el precio del producto!',
+            'stock.required' => 'Necesitamos el stock del producto!',
+            'category_id.required' => 'Necesitamos la categoría del producto!',
+            'image.required' => 'Necesitamos la imagen del producto!',
+            'image.image' => 'Necesitamos que el archivo sea una imagen!',
         ];
     }
 }

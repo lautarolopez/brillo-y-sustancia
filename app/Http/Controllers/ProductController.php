@@ -6,20 +6,21 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
 use App\Http\Requests\StoreProductRequest;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
     public function index(){
-        $products = Product::get();
+        $products = Product::paginate(12);
         return view('products.index', [
             'products' => $products,
-            'category' => 'Productos'
+            'category' => 'Productos',
         ]);
     }
 
     public function categoryIndex($category){
         $category_found = Category::where('name', '=', $category)->get()[0];
-        $products = Product::where('category_id', '=', $category_found->id)->get();
+        $products = Product::where('category_id', '=', $category_found->id)->paginate(12);
         return view('products.index', [
             'products' => $products,
             'category' => $category,
@@ -30,6 +31,7 @@ class ProductController extends Controller
         return view('products.show', [
             'product' => $product,
             'category' => Category::find($product->category_id)->name,
+            'isAdmin' => Auth::user() && Auth::user()->isAdmin,
         ]);
     }
 
@@ -40,17 +42,16 @@ class ProductController extends Controller
     }
 
     public function store(StoreProductRequest $request){
-
         $reqAux = $request->validated();
         $img_url = basename($request->file('image')->store('public'));
-        
+        $product_url = preg_replace('/\s+/', '-',$reqAux['name']);
         $auxProduct = [
             'name' => $reqAux['name'],
             'description' => $reqAux['description'],
             'price' => $reqAux['price'],
             'stock' => $reqAux['stock'],
             'category_id' => $reqAux['category_id'],
-            'url' => $reqAux['url'],
+            'url' => $product_url,
             'img_url' => $img_url
         ];
 
@@ -70,14 +71,14 @@ class ProductController extends Controller
         $reqAux = $request->validated();
         
         $img_url = basename($request->file('image')->store('public'));
-
+        $product_url = preg_replace('/\s+/', '-',$reqAux['name']);
         $auxProduct = [
             'name' => $reqAux['name'],
             'description' => $reqAux['description'],
             'price' => $reqAux['price'],
             'stock' => $reqAux['stock'],
             'id_category' => $reqAux['category_id'],
-            'url' => $reqAux['url'],
+            'url' => $product_url,
             'img_url' => $img_url
         ];
 

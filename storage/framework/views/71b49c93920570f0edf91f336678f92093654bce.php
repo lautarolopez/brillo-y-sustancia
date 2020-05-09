@@ -5,7 +5,7 @@
 </label>
 <label>
     Descripcion: <br> 
-    <textarea name="description" value="<?php echo e(old('description', $product->description)); ?>"></textarea>
+    <textarea name="description"><?php echo e(old('description', $product->description)); ?></textarea>
 </label>
 <label> 
     Precio: <br> 
@@ -16,12 +16,17 @@
     <input type="number" name="stock" value="<?php echo e(old('stock', $product->stock)); ?>">
 </label>
 <label>
-    Category: <br>
-    <input type="number" name="category_id" value="<?php echo e(old('category_id', $product->id_category)); ?>">
-</label>
-<label>
-    URL: <br>
-    <input type="text" name="url" value="<?php echo e(old('url', $product->url)); ?>">
+    Categoría: <br>
+    <select name="category_id">
+        <option value="0">Ninguna</option>
+        <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <?php if(old('category_id', $product->category_id) == $category->id): ?>
+                <option value=<?php echo e($category->id); ?> selected><?php echo e($category->name); ?></option>    
+            <?php else: ?>
+                <option value=<?php echo e($category->id); ?>><?php echo e($category->name); ?></option>
+            <?php endif; ?>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    </select>
 </label>
 <label>
     Imagen: <br>

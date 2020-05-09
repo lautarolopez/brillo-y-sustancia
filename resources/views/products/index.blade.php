@@ -9,7 +9,7 @@
         @forelse ($products as $product)
           <li>
         <article class="product-card">
-          <a href="{{route('products.show', $product)}}">
+          <a class="img-container" href="{{route('products.show', $product)}}">
             <img src= {{"../storage/" . $product->img_url }} alt= {{ $product->name }}}>
           </a>
           <div class="inside-container">
@@ -30,7 +30,8 @@
         @empty
           <p>No hay nada para mostrar</p>
         @endforelse
-    </ul>    
+    </ul>
+    {{ $products->links() }}    
   </section>
 @stop
 

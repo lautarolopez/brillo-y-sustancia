@@ -54,8 +54,4 @@ class User extends Authenticatable
         return $this->belongsToMany(Product::class, 'users_products', 'user_id', 'product_id');
     }
 
-    public function products(){
-        return $this->belongsToMany(Product::class, 'users_products', 'user_id', 'product_id');
-    }
-
 }

@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\ContactRequest;
+
 
 class ContactController extends Controller
 {
-    public function store(){
-        request()->validate([
-            'name' => 'max:30|required',
-            'email' => 'required|email',
-            'message' => 'max:300|required'
-        ]);
-        return 'Datos validados';
+    public function store(ContactRequest $request){
+        $reqAux = $request->validated();
+        dd($reqAux);
+        // return 'Datos validados';  
     }
 };

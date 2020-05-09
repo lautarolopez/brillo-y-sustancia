@@ -26,7 +26,7 @@ class CartController extends Controller
     public function removeFromCart($product_url){
         $products = Product::where('url', '=' , $product_url)->get();
         Auth::user()->cart()->detach($products[0]);
-        return redirect()->route('products.show', $product_url);
+        return redirect()->route('cart');
     }
 
     public function show(){

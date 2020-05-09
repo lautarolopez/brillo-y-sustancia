@@ -15,15 +15,16 @@ class CreateSalesTable extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('user_name');
-            $table->bigInteger('postal_code');
-            $table->string('address');
-            $table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('address_id');
             $table->bigInteger('quantity');
-            $table->boolean('sended');
+            $table->date('purchase_date');
+            $table->boolean('shipped');
+            $table->boolean('completed');
             $table->timestamps();
 
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('address_id')->references('id')->on('addresses');
         });
     }
 

@@ -15,11 +15,14 @@
 <small>Category: {{ $category }}</small>
 <br/>
 <img src={{ "../storage/" . $product->img_url }} alt="{{$product->name}}">
-
-<a href=" {{ route('products.edit', $product)}} ">Editar</a>
+@if ($isAdmin)
+  <a href=" {{ route('products.edit', $product)}} ">Editar</a>    
+@endif
 <form method="post" action="{{ route('products.destroy', $product) }}">
   @csrf @method('DELETE')
-  <button>Eliminar</button>
+  @if ($isAdmin)
+    <button>Eliminar</button>
+  @endif
 </form>
 <a href=" {{ route('addToCart', $product ) }} ">Agregar al carrito</a>
 

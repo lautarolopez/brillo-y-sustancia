@@ -4,12 +4,22 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Product;
+use App\User;
+use App\Address;
 
 class Sale extends Model
 {
     protected $guarded = [];
 
-    public function product(){
-        return $this->belongsTo(Product::class, 'product_id');
+    public function products(){
+        return $this->belongsToMany(Product::class, 'sales_products', 'sale_id', 'product_id');
+    }
+    
+    public function client() {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function address() {
+        return $this->belongsTo(Address::class, 'address_id');
     }
 }

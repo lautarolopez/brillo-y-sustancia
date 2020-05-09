@@ -21,7 +21,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/home';
+    public const HOME = '/';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -30,8 +30,30 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-
+        Route::macro('localizeAuth', function ($options = []){
+            // Authentication Routes...
+            Route::get(__('routes.login'), 'Auth\LoginController@showLoginForm')->name('login');
+            Route::post(__('routes.login'), 'Auth\LoginController@login');
+            Route::post(__('routes.logout'), 'Auth\LoginController@logout')->name('logout');
+            // Registration Routes...
+            if ($options['register'] ?? true) {
+                Route::get(__('routes.register'), 'Auth\RegisterController@showRegistrationForm')->name('register');
+                Route::post(__('routes.register'), 'Auth\RegisterController@register');
+            }
+            // Password Reset Routes...
+            if ($options['reset'] ?? true) {
+                Route::get(__('routes.password.reset'), 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+                Route::post(__('routes.password.email'), 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+                Route::get(__('routes.password.reset-token'), 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+                Route::post(__('routes.password.reset'), 'Auth\ResetPasswordController@reset')->name('password.update');
+            }
+            // Email Verification Routes...
+            if ($options['verify'] ?? false) {
+                Route::get(__('routes.email.verify'), 'Auth\VerificationController@show')->name('verification.notice');
+                Route::get(__('routes.email.verify-id'), 'Auth\VerificationController@verify')->name('verification.verify');
+                Route::get(__('routes.email.resend'), 'Auth\VerificationController@resend')->name('verification.resend');
+            }
+        });
         parent::boot();
     }
 

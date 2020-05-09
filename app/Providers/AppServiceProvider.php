@@ -28,5 +28,9 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('partials.header', function ($view) {
             $view->with('categories', Category::all()->unique());
         });
+
+        view()->composer('products._form', function ($view) {
+            $view->with('categories', Category::all()->unique());
+        });
     }
 }

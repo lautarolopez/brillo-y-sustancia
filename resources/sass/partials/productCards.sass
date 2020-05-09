@@ -36,9 +36,23 @@ article.product-card
     font-family: variables.$primary-font
     z-index: 40
     box-shadow: -1px 3px 4px #999, 1px 3px 4px #999
-    
-    img
+    a.img-container
+        position: relative
         width: 100%
+        &::after
+           content: ""
+           display: block
+           padding-bottom: 100% 
+        img
+            position: absolute
+            top: 0
+            bottom: 0
+            left: 0
+            right: 0
+            width: 100%
+            height: 100%
+            object-fit: cover
+            object-position: center
     a
         width: 100%
         color: black

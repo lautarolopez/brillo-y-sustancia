@@ -4,15 +4,18 @@
 
 
 use App\Sale;
+use App\Product;
+use App\User;
+use App\Address;
 use Faker\Generator as Faker;
 
 $factory->define(Sale::class, function (Faker $faker) {
     return [
-        'user_name' => $faker->word,
-        'postal_code' => $faker->numberBetween(1500, 5000),
-        'address' => $faker->address,
-        'product_id' => App\Product::find($faker->numberBetween(1, 150)),
-        'quantity' => $faker->numberBetween(0, 15),
-        'sended' => $faker->randomDigitNotNull > 5,
+        'user_id' => User::find($faker->numberBetween(1, 50)),
+        'address_id' => Address::find($faker->numberBetween(1, 50)),
+        'quantity' => $faker->numberBetween(1, 5),
+        'purchase_date' => $faker->dateTime($max = 'now', $timezone= null),
+        'shipped' => $faker->randomDigitNotNull > 5,
+        'completed' => $faker->randomDigitNotNull > 5,
     ];
 });

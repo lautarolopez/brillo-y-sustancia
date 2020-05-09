@@ -7,7 +7,7 @@
         <?php $__empty_1 = true; $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
           <li>
         <article class="product-card">
-          <a href="<?php echo e(route('products.show', $product)); ?>">
+          <a class="img-container" href="<?php echo e(route('products.show', $product)); ?>">
             <img src= <?php echo e("../storage/" . $product->img_url); ?> alt= <?php echo e($product->name); ?>}>
           </a>
           <div class="inside-container">
@@ -28,7 +28,8 @@
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
           <p>No hay nada para mostrar</p>
         <?php endif; ?>
-    </ul>    
+    </ul>
+    <?php echo e($products->links()); ?>    
   </section>
 <?php $__env->stopSection(); ?>
 
