@@ -178,8 +178,11 @@ section.products-container h2 {
   text-align: center;
   font-weight: 400;
 }
-
-section.products-container ul {
+.pagination-container{
+  width: 300px;
+  margin: 0 auto;
+}
+section.products-container ul.product-list {
   display: flex;
   align-items: center;
   justify-content: center;
