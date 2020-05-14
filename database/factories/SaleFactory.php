@@ -13,7 +13,6 @@ $factory->define(Sale::class, function (Faker $faker) {
     return [
         'user_id' => User::find($faker->numberBetween(1, 50)),
         'address_id' => Address::find($faker->numberBetween(1, 50)),
-        'quantity' => $faker->numberBetween(1, 5),
         'purchase_date' => $faker->dateTime($max = 'now', $timezone= null),
         'shipped' => $faker->randomDigitNotNull > 5,
         'completed' => $faker->randomDigitNotNull > 5,
