@@ -5,7 +5,7 @@
 @section('content')
   <section class="products-container">
     <h2>{{$category}}</h2>
-    <ul>
+    <ul class="product-list">
         @forelse ($products as $product)
           <li>
         <article class="product-card">
@@ -31,7 +31,9 @@
           <p>No hay nada para mostrar</p>
         @endforelse
     </ul>
-    {{ $products->links() }}    
+    <div class="pagination-container">
+        {{ $products->links() }} 
+    </div>  
   </section>
 @stop
 
