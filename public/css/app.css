@@ -178,18 +178,8 @@ section.products-container h2 {
   text-align: center;
   font-weight: 400;
 }
-.pagination-container{
-  width: 300px;
-  margin: 0 auto;
-}
-.page-item.active .page-link {
-  background-color: #000000;
-  border-color: #000000;
-}
-.page-link {
-  color: #000000;
-}
-section.products-container ul.product-list {
+
+section.products-container ul {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -306,6 +296,39 @@ div.product-info {
 
 div.product-collapse {
   height: 250px !important;
+}
+
+@media (min-width: 700px) {
+  .pagination-container {
+    width: 33%;
+    margin: 0 auto;
+  }
+}
+
+.pagination {
+  display: table !important;
+  width: 100%;
+}
+
+.pager li,
+.pagination > li {
+  display: inline !important;
+  display: table-cell !important;
+}
+
+.pagination > li > a,
+.pagination > li > span {
+  width: 100% !important;
+  text-align: center !important;
+}
+
+.page-item.active .page-link {
+  background-color: #000000;
+  border-color: #000000;
+}
+
+.page-link {
+  color: #000000;
 }
 
 * {
