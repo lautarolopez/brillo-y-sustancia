@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    @include('partials.admin_navbar')
     <main class="container-fliud content">
         @yield('content')       
     </main>

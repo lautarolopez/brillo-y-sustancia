@@ -27,6 +27,13 @@ class ProductController extends Controller
         ]);
     }
 
+    public function indexAdmin(){
+        $products = Product::all();
+        return view('admin.productsIndex', [
+            'products' => $products,
+        ]);
+    }
+
     public function show(Product $product){
         return view('products.show', [
             'product' => $product,

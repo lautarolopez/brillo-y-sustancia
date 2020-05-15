@@ -8,7 +8,7 @@
 
 <h1>Editar producto</h1>
 <form method="POST" action="{{ route('products.update', $product)}}" enctype="multipart/form-data">
-    @method('patch')
+    @method('PATCH')
     
     @include('products._form', [ 'btnText' => 'Actualizar' ])
 

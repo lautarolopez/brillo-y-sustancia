@@ -38,4 +38,11 @@ class SalesController extends Controller
         }
         return redirect()->route('home');
     }
+
+    public function index() {
+        $sales = Sale::all(); 
+        return view('admin.salesIndex', [
+            'sales' => $sales,
+        ]);
+    }
 }
