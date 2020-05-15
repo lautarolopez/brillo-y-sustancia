@@ -5,7 +5,7 @@
 <?php echo $__env->make('partials.validation-errors', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <h1>Crear producto</h1>
-<form method="POST" action="<?php echo e(route('products.store')); ?>" enctype="multipart/form-data">
+<form method="POST" action="<?php echo e(route('admin-products.store')); ?>" enctype="multipart/form-data">
 
     <?php echo $__env->make('products._form', [ 'btnText' => 'Guardar' ], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     

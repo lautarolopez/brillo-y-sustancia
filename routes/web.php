@@ -30,15 +30,18 @@ Route::post('/#contact', 'ContactController@store')->name('contact.send');
 Route::post('/realizar-compra', 'SalesController@CheckOutCart')->name('checkOutCart');
 Route::post('/finalizar-compra', 'SalesController@completeSale')->name('completeSale');
 Route::resource('productos', 'ProductController')->names([
-    'store' => 'products.store',
+    // 'store' => 'products.store',
     'index' => 'products.index',
-    'create' => 'products.create',
+    // 'create' => 'products.create',
     'show' => 'products.show',
-    'update' => 'products.update',
-    'destroy' => 'products.destroy',
-    'edit'=> 'products.edit',
+    // 'update' => 'products.update',
+    // 'destroy' => 'products.destroy',
+    // 'edit'=> 'products.edit',
 ])->parameters([
     'productos' => 'product'
+])->only([
+    'index',
+    'show',
 ]);
 Route::resource('mis-direcciones', 'AddressController')->names([
     'store' => 'addresses.store',
@@ -66,5 +69,16 @@ Route::get('/bys-admin/categorias', 'CategoryController@index')->name('categorie
 Route::get('/bys-admin/categorias/crear', 'CategoryController@create')->name('categories.create')->middleware('adminPermission');
 Route::post('bys-admin/categories', 'CategoryController@store')->name('categories.store')->middleware('adminPermission');
 Route::delete('/bys-admin/categorias/{category}', 'CategoryController@destroy')->name('categories.destroy')->middleware('adminPermission');
+Route::resource('/bys-admin/productos', 'ProductController')->names([
+    'store' => 'admin-products.store',
+    'create' => 'admin-products.create',
+    'update' => 'admin-products.update',
+    'destroy' => 'admin-products.destroy',
+    'edit'=> 'admin-products.edit',
+])->parameters([
+    'productos' => 'product'
+])->except([
+    'show',
+    'index',
+]);
 Route::get('/bys-admin/productos', 'ProductController@indexAdmin')->name('admin-products.index')->middleware('adminPermission');
-

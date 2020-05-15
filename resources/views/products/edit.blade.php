@@ -7,7 +7,7 @@
 @include('partials.validation-errors')
 
 <h1>Editar producto</h1>
-<form method="POST" action="{{ route('products.update', $product)}}" enctype="multipart/form-data">
+<form method="POST" action="{{ route('admin-products.update', $product)}}" enctype="multipart/form-data">
     @method('PATCH')
     
     @include('products._form', [ 'btnText' => 'Actualizar' ])

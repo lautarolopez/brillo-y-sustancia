@@ -38,7 +38,6 @@ class ProductController extends Controller
         return view('products.show', [
             'product' => $product,
             'category' => Category::find($product->category_id)->name,
-            'isAdmin' => Auth::user() && Auth::user()->isAdmin,
         ]);
     }
 
@@ -64,7 +63,7 @@ class ProductController extends Controller
 
         Product::create($auxProduct); 
 
-        return redirect()->route('products.index');
+        return redirect()->route('admin-products.index');
     }
 
 
@@ -91,12 +90,12 @@ class ProductController extends Controller
 
         $product->update($auxProduct); 
 
-        return redirect()->route('products.show', $product);
+        return redirect()->route('admin-products.index');
     }
 
     public function destroy(Product $product){
         $product->delete();
         
-        return redirect()->route('products.index');
+        return redirect()->route('admin-products.index');
     }
 }

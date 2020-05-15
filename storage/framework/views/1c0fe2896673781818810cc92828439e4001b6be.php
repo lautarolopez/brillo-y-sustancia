@@ -13,15 +13,7 @@
 <small>Category: <?php echo e($category); ?></small>
 <br/>
 <img src=<?php echo e("../storage/" . $product->img_url); ?> alt="<?php echo e($product->name); ?>">
-<?php if($isAdmin): ?>
-  <a href=" <?php echo e(route('products.edit', $product)); ?> ">Editar</a>    
-<?php endif; ?>
-<form method="post" action="<?php echo e(route('products.destroy', $product)); ?>">
-  <?php echo csrf_field(); ?> <?php echo method_field('DELETE'); ?>
-  <?php if($isAdmin): ?>
-    <button>Eliminar</button>
-  <?php endif; ?>
-</form>
+
 <a href=" <?php echo e(route('addToCart', $product )); ?> ">Agregar al carrito</a>
 
 <?php $__env->stopSection(); ?>

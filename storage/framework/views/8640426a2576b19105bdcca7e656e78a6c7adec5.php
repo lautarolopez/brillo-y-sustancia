@@ -5,8 +5,8 @@
 <?php echo $__env->make('partials.validation-errors', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <h1>Editar producto</h1>
-<form method="POST" action="<?php echo e(route('products.update', $product)); ?>" enctype="multipart/form-data">
-    <?php echo method_field('patch'); ?>
+<form method="POST" action="<?php echo e(route('admin-products.update', $product)); ?>" enctype="multipart/form-data">
+    <?php echo method_field('PATCH'); ?>
     
     <?php echo $__env->make('products._form', [ 'btnText' => 'Actualizar' ], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
