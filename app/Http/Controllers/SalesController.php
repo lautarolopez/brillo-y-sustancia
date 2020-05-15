@@ -40,9 +40,32 @@ class SalesController extends Controller
     }
 
     public function index() {
-        $sales = Sale::all(); 
+        $sales = Sale::all();
+        $salesInformation = [];
+        foreach ($sales as $sale) {
+            $salesInformation[] = [
+                'sale' => $sale,
+                'products' => $sale->products()->get(),
+                'client' => $sale->client()->get(),
+                'address' => $sale->address()->get(),
+            ]; 
+        }
         return view('admin.salesIndex', [
-            'sales' => $sales,
+            'salesInformation' => $salesInformation,
         ]);
+    }
+
+    public function setShipped (Sale $sale) {
+        $sale->update([
+            'shipped' => true,
+        ]);
+        return redirect()->route('sales.index');
+    }
+
+    public function setCompleted (Sale $sale) {
+        $sale->update([
+            'completed' => true,
+        ]);
+        return redirect()->route('sales.index');
     }
 }

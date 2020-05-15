@@ -60,6 +60,8 @@ Route::get('/bys-admin', 'AdminController@dashboard')->name('admin.dashboard')->
 Route::get('/bys-admin/usuarios', 'UserController@index')->name('users.index')->middleware('adminPermission');
 Route::patch('bys-admin/usuarios/{user}', 'UserController@changePermissions')->name('users.changePermissions')->middleware('adminPermission');
 Route::get('/bys-admin/ventas', 'SalesController@index')->name('sales.index')->middleware('adminPermission');
+Route::patch('bys-admin/ventas/marcar-enviada/{sale}', 'SalesController@setShipped')->name('sales.setShipped')->middleware('adminPermission');
+Route::patch('bys-admin/ventas/marcar-completada/{sale}', 'SalesController@setCompleted')->name('sales.setCompleted')->middleware('adminPermission');
 Route::get('/bys-admin/categorias', 'CategoryController@index')->name('categories.index')->middleware('adminPermission');
 Route::get('/bys-admin/categorias/crear', 'CategoryController@create')->name('categories.create')->middleware('adminPermission');
 Route::post('bys-admin/categories', 'CategoryController@store')->name('categories.store')->middleware('adminPermission');

@@ -11,6 +11,7 @@ class Sale extends Model
 {
     protected $guarded = [];
 
+
     public function products(){
         return $this->belongsToMany(Product::class, 'sales_products', 'sale_id', 'product_id')->withPivot('quantity');
     }
@@ -22,4 +23,5 @@ class Sale extends Model
     public function address() {
         return $this->belongsTo(Address::class, 'address_id');
     }
+
 }
