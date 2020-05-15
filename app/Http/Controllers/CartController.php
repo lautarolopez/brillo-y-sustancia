@@ -23,8 +23,8 @@ class CartController extends Controller
         return redirect()->route('products.show', $product_name);
     }
 
-    public function removeFromCart($product_url){
-        $products = Product::where('url', '=' , $product_url)->get();
+    public function removeFromCart(Request $req){
+        $products = Product::where('url', '=' , $req['url'])->get();
         Auth::user()->cart()->detach($products[0]);
         return redirect()->route('cart');
     }

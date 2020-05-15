@@ -10,19 +10,32 @@ use App\Address;
 
 class SalesController extends Controller
 {
-    public function checkOutCart() {
+    public function checkOutCart(Request $req) {
+        $products = Auth::user()->cart()->get();
+        foreach($products as $product){
+            $product->pivot->quantity = $req[$product->id];
+            $product->pivot->save();
+        }
+        $addresses = Auth::user()->addresses()->get();
+        return view('addresses.index', [
+            'addresses' => $addresses,
+            'cart' => true,
+        ]);
+    }
+
+    public function completeSale(Request $request) {
         $products = Auth::user()->cart()->get();
         $newSale = Sale::create([
-            'user_id' => 52,
-            'address_id' => 1,
-            'quantity' => 1,
-            'purchase_date' => now(),
-            'shipped' => false,
-            'completed' => false,
-        ]);
+                'user_id' => Auth::user()->id,
+                'address_id' => $request['address'],
+                'purchase_date' => now(),
+                'shipped' => false,
+                'completed' => false,
+            ]);
         foreach ($products as $product) {
-            $newSale->products()->attach($product);
+            $newSale->products()->attach($product, array('quantity' => $product->pivot->quantity));
+            Auth::user()->cart()->detach($product);
         }
-        dd($newSale);
+        return redirect()->route('home');
     }
 }

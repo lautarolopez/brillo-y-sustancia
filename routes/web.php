@@ -26,10 +26,11 @@ Route::get('/perfil', function(){
 Route::get('/carrito', 'CartController@show')->name('cart');
 
 Route::get('/añadir-al-carrito/{product}', 'CartController@addToCart')->name('addToCart');
-Route::delete('/carrito/eliminar/{product}', 'CartController@removeFromCart')->name('deleteFromCart');
+Route::delete('/carrito/eliminar', 'CartController@removeFromCart')->name('deleteFromCart');
 Route::post('/', 'ContactController@store')->name('home');
 Route::post('/#contact', 'ContactController@store')->name('contact.send');
 Route::post('/realizar-compra', 'SalesController@CheckOutCart')->name('checkOutCart');
+Route::post('/finalizar-compra', 'SalesController@completeSale')->name('completeSale');
 Route::resource('productos', 'ProductController')->names([
     'store' => 'products.store',
     'index' => 'products.index',
@@ -41,5 +42,17 @@ Route::resource('productos', 'ProductController')->names([
 ])->parameters([
     'productos' => 'product'
 ]);
+Route::resource('mis-direcciones', 'AddressController')->names([
+    'store' => 'addresses.store',
+    'index' => 'addresses.index',
+    'create' => 'addresses.create',
+    'show' => 'addresses.show',
+    'update' => 'addresses.update',
+    'destroy' => 'addresses.destroy',
+    'edit'=> 'addresses.edit',
+])->parameters([
+    'direcciones' => 'address'
+])->middleware('auth');
+
 Route::get('/productos/categorias/{category}', 'ProductController@categoryIndex')->name('products.index.category');
 Route::localizeAuth();

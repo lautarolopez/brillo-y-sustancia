@@ -17,7 +17,6 @@ class CreateSalesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('address_id');
-            $table->bigInteger('quantity');
             $table->date('purchase_date');
             $table->boolean('shipped');
             $table->boolean('completed');

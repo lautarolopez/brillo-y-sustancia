@@ -11,6 +11,6 @@ $factory->define(Address::class, function (Faker $faker) {
         'address_number' => $faker->buildingNumber,
         'floor' => $faker->numberBetween(0, 30),
         'departament' => $faker->randomLetter,
-        'client_id' => App\User::find($faker->numberBetween(1, 50)),
+        'user_id' => App\User::find($faker->numberBetween(40, 51)),
     ];
 });
