@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Sale;
 use App\User;
 use App\Address;
+use App\Product;
 
 class SalesController extends Controller
 {
@@ -34,6 +35,9 @@ class SalesController extends Controller
                 'completed' => false,
             ]);
         foreach ($products as $product) {
+            $product->update([
+                'stock' => $product->stock - $product->pivot->quantity,
+            ]);
             $newSale->products()->attach($product, array('quantity' => $product->pivot->quantity));
             Auth::user()->cart()->detach($product);
         }
