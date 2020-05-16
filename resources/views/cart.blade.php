@@ -15,16 +15,24 @@
         <button class="btn" onclick='plus({{$product->id}}, {{$product->stock}})'><i class="fas fa-plus"></i></button>
     @endforelse --}}
     @if ($products->isNotEmpty())
-        <form method="post" action="{{ route('checkOutCart') }}">
+        <form method="post" action="{{ route('checkOutCart') }}" class="container form-cart">
             @csrf
+            <h2 class="title">Carrito</h2>
             @foreach ($products as $product)
-                {{ $product->name }}
-                <a class="btn" href="#" onclick='deleteItem(event, "{{ $product->url }}")'><i class="fas fa-ban"></i></a>
-                <button class="btn" onclick='minus(event, "{{$product->id}}")'><i class="fas fa-minus"></i></button>
-                <input type="number" min="1" id={{$product->id . "inputdata"}} name={{ $product->id }} value={{ $product->pivot->quantity }}>
-                <button class="btn" onclick='plus(event, "{{$product->id}}", "{{$product->stock}}")'><i class="fas fa-plus"></i></button>
+                <div class="product-cart">
+                    <div>
+                        <h4>{{ $product->name }}</h4>
+                        <div class="product">
+                            <button class="btn radius-none" onclick='minus(event, "{{$product->id}}")'><i class="fas fa-minus"></i></button>
+                            <input type="number" class="form-control" min="1" id={{$product->id . "inputdata"}} name={{ $product->id }} value={{ $product->pivot->quantity }}>
+                            <button class="btn radius-none" onclick='plus(event, "{{$product->id}}", "{{$product->stock}}")'><i class="fas fa-plus"></i></button>
+                            <a class="btn radius-none" href="#" onclick='deleteItem(event, "{{ $product->url }}")'>Eliminar</a>
+                        </div>
+                    </div>
+                </div>
             @endforeach
-            <button class="btn" type="submit">Completar la compra</button>
+            
+            <button class="btn radius-none center" type="submit">Completar la compra</button>
         </form>
         <form id="delete-item-form" method="post" action="{{ route('deleteFromCart') }}">
             @csrf @method('DELETE')
