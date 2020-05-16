@@ -12,7 +12,7 @@
 <br/>
 <small>Category: <?php echo e($category); ?></small>
 <br/>
-<img src=<?php echo e("../storage/" . $product->img_url); ?> alt="<?php echo e($product->name); ?>">
+<img src=<?php echo e("../../storage/product_pictures/" . $product->img_url); ?> alt="<?php echo e($product->name); ?>">
 
 <a href=" <?php echo e(route('addToCart', $product )); ?> ">Agregar al carrito</a>
 

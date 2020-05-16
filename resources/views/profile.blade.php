@@ -7,7 +7,7 @@
 @auth
     <div class="hero-profile">
         <div class="img-profile">
-            <img src="../storage/{{$user->profile_img_url}}" alt="Profile picture">
+            <img src={{"../../storage/user_profile_pictures/" . $user->profile_img_url }} alt="{{$user->profile_img_url}}">
         </div>
         <h2>{{ $user->name . " " . $user->last_name}}</h2>
     </div>

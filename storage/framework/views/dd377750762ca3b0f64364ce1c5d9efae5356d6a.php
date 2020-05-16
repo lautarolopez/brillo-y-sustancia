@@ -8,7 +8,7 @@
           <li>
             <article class="product-card">
               <a class="img-container" href="<?php echo e(route('products.show', $product)); ?>">
-                <img src= <?php echo e("../../storage/" . $product->img_url); ?> alt= <?php echo e($product->name); ?>}>
+                <img src= <?php echo e("../../storage/product_pictures/" . $product->img_url); ?> alt= <?php echo e($product->name); ?>}>
               </a>
               <div class="inside-container">
                 <a href="<?php echo e(route('products.show', $product)); ?>">

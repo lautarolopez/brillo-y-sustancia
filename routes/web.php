@@ -30,13 +30,8 @@ Route::post('/#contact', 'ContactController@store')->name('contact.send');
 Route::post('/realizar-compra', 'SalesController@CheckOutCart')->name('checkOutCart');
 Route::post('/finalizar-compra', 'SalesController@completeSale')->name('completeSale');
 Route::resource('productos', 'ProductController')->names([
-    // 'store' => 'products.store',
     'index' => 'products.index',
-    // 'create' => 'products.create',
     'show' => 'products.show',
-    // 'update' => 'products.update',
-    // 'destroy' => 'products.destroy',
-    // 'edit'=> 'products.edit',
 ])->parameters([
     'productos' => 'product'
 ])->only([

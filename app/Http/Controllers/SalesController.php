@@ -20,7 +20,8 @@ class SalesController extends Controller
         return view('addresses.index', [
             'addresses' => $addresses,
             'cart' => true,
-        ]);
+            ]
+        );
     }
 
     public function completeSale(Request $request) {

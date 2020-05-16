@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
             'email_verified_at' => now(),
             'password' => Hash::make('testing'), // password
             'isAdmin' => true,
-            'profile_img_url' => 'public/storage/profilepic.png', 
+            'profile_img_url' => 'profilepic.png', 
             'remember_token' => Str::random(10),
         ]);
         factory(Category::class)->times(5)->create();

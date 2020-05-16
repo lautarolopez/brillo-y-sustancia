@@ -9,7 +9,7 @@
 </label>
 <label> 
     Precio: <br> 
-    <input type="number" name="price" value="{{ old('price', $product->price) }}">
+    <input type="number" name="price" step="0.01" min="0" value="{{ old('price', $product->price) }}">
 </label>
 <label>
     Stock: <br>

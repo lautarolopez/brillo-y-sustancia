@@ -5,7 +5,7 @@
 <?php if(auth()->guard()->check()): ?>
     <div class="hero-profile">
         <div class="img-profile">
-            <img src="../storage/<?php echo e($user->profile_img_url); ?>" alt="Profile picture">
+            <img src=<?php echo e("../../storage/user_profile_pictures/" . $user->profile_img_url); ?> alt="<?php echo e($user->profile_img_url); ?>">
         </div>
         <h2><?php echo e($user->name . " " . $user->last_name); ?></h2>
     </div>

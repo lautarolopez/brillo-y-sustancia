@@ -49,7 +49,7 @@ class ProductController extends Controller
 
     public function store(StoreProductRequest $request){
         $reqAux = $request->validated();
-        $img_url = basename($request->file('image')->store('public'));
+        $img_url = basename($request->file('image')->store('public/product_pictures'));
         $product_url = preg_replace('/\s+/', '-',$reqAux['name']);
         $auxProduct = [
             'name' => $reqAux['name'],

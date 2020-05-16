@@ -1,6 +1,6 @@
 @extends('layouts.main_layout')
 
-@section('title', 'Ingresá')
+@section('title', 'Finalizar compra')
 
 @section('content')
     <form action="{{route('completeSale')}}" method="post">

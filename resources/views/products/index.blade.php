@@ -10,7 +10,7 @@
           <li>
             <article class="product-card">
               <a class="img-container" href="{{route('products.show', $product)}}">
-                <img src= {{"../../storage/" . $product->img_url }} alt= {{ $product->name }}}>
+                <img src= {{"../../storage/product_pictures/" . $product->img_url }} alt= {{ $product->name }}}>
               </a>
               <div class="inside-container">
                 <a href="{{route('products.show', $product)}}">

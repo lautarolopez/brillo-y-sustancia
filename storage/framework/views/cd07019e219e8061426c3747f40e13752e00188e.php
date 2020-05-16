@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', 'Ingresá'); ?>
+<?php $__env->startSection('title', 'Finalizar compra'); ?>
 
 <?php $__env->startSection('content'); ?>
     <form action="<?php echo e(route('completeSale')); ?>" method="post">
