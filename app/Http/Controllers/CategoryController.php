@@ -34,6 +34,10 @@ class CategoryController extends Controller
     }
 
     public function destroy(Category $category){
+        $products = $category->products()->get();
+        foreach ($products as $product) {
+            $product->update(['category_id' => null]);
+        };
         $category->delete();
         
         return redirect()->route('categories.index');

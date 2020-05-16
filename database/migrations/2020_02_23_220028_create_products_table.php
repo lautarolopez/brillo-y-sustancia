@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->text('description'); 
             $table->float ('price', 8, 2);
             $table->bigInteger('stock');
-            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('category_id')->nullable();
             $table->string('url');
             $table->string('img_url');
             $table->timestamps();

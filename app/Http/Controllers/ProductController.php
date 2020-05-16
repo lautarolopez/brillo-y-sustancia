@@ -35,9 +35,13 @@ class ProductController extends Controller
     }
 
     public function show(Product $product){
+        $category = "";
+        if ($product->category_id !== null){
+            $category = Category::find($product->category_id)->name;
+        }
         return view('products.show', [
             'product' => $product,
-            'category' => Category::find($product->category_id)->name,
+            'category' => $category,
         ]);
     }
 
