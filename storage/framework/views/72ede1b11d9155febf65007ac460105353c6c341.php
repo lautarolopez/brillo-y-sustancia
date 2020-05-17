@@ -5,7 +5,9 @@
 
     <h1 style="font-size: 100px">BENVENUTI</h1>
 
-
+    <form action="<?php echo e(route('cleanCarts')); ?>" method="get">
+        <button type="submit" class="btn">Limpiar carritos inactivos</button>
+    </form>
 
 
 <?php $__env->stopSection(); ?>

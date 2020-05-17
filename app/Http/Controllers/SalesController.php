@@ -27,6 +27,7 @@ class SalesController extends Controller
 
     public function completeSale(Request $request) {
         $products = Auth::user()->cart()->get();
+        Auth::user()->update(['last_update_cart' => now()]);
         $newSale = Sale::create([
                 'user_id' => Auth::user()->id,
                 'address_id' => $request['address'],

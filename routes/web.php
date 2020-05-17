@@ -77,3 +77,4 @@ Route::resource('/bys-admin/productos', 'ProductController')->names([
     'index',
 ]);
 Route::get('/bys-admin/productos', 'ProductController@indexAdmin')->name('admin-products.index')->middleware('adminPermission');
+Route::get('/bys-admin/limpiar-carritos-inactivos', 'CartController@cleanInactiveCarts')->name('cleanCarts')->middleware('adminPermission');
