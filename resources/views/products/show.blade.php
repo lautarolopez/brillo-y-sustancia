@@ -1,6 +1,6 @@
 @extends('layouts.main_layout')
 
-@section('title', 'Home')
+@section('title', $product->name)
 
 @section('content')
 
@@ -12,9 +12,9 @@
     <br/>
     <small>Stock {{ $product->stock}} </small>
     <br/>
-    @if ($category)
+    {{-- @if ($category) --}}
         <small>Category: {{ $category  }}</small>
-    @endif
+    {{-- @endif --}}
     <br/>
     <img src={{ "../../storage/product_pictures/" . $product->img_url }} alt="{{$product->name}}">
 
