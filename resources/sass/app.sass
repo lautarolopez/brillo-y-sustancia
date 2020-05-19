@@ -74,53 +74,41 @@ footer
     font-family: "Montserrat", sans-serif
     text-align: center
     form
+        display: flex
+        justify-content: space-between
+        flex-wrap: wrap
+        span
+            width: 45%
+            display: flex
+            flex-direction: column
+            justify-content: flex-end
+            &.message
+                width: 100%
+            small
+                color: red
+                align-self: flex-start
+        input, textarea
+            width: 100%
+            background: none
+            border: none
+            outline: none
+            border-bottom: 1px solid
+            color: #333
+            padding: 10px 6px
+            font-size: 14px
+            margin-bottom: 40px
         button
             margin: auto
+        .is-invalid
+            border-bottom: 1px solid red
 
 .ancho-interior
     max-width: 600px
     margin: auto
     padding: 0, 20px
 
-.name,
-.email,
-.message 
-    background: none
-    border: none
-    outline: none
-    border-bottom: 1px solid
-    color: #333
-    padding: 10px 6px
-    font-size: 14px
-    margin-bottom: 40px
 
-.name
-    float: left
-    width: 270px
-
-.email
-    float: right
-    width: 270px
-
-.name-error
-    color: red
-    float: left
-    width: 270px
-
-.email-error
-    color: red
-    float: right
-    width: 270px
-
-
-.message-error
-    color: red
-    float: center
-    width: 100%
-    text-overflow: ellipsis
-    overflow: hidden
-
-.message
+textarea.message
     min-width: 100%
     max-width: 100%
 
@@ -128,17 +116,16 @@ footer
 @media (max-width: 700px)
     .contact 
         form
-            display: flex
             flex-direction: column
             align-items: center
             justify-content: center
-    .name,
-    .email
-        width: 90%
-        margin: auto
-    .message
-        min-width: 90%
-        max-width: 90%    
+            span
+                width: 90%
+                margin: auto
+                &.message
+                    width: 90%
+                    margin: auto
+
 
 .contact 
     h2 

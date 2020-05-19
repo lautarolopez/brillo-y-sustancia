@@ -18,6 +18,9 @@
         <form method="post" action="{{ route('checkOutCart') }}" class="container form-cart">
             @csrf
             <h2 class="title">Carrito</h2>
+            @if ($warning) 
+                <strong style="color: red">Parece que estos productos están en el carrito de más personas. Apurate!</strong>
+            @endif
             @foreach ($products as $product)
                 <div class="product-cart">
                     <div>

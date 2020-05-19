@@ -2,11 +2,9 @@
 
 <?php $__env->startSection('content'); ?>
 
-<?php echo $__env->make('partials.validation-errors', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-<h1>Crear producto</h1>
-<form method="POST" action="<?php echo e(route('admin-products.store')); ?>" enctype="multipart/form-data">
-
+<form class="passwords-form" method="POST" action="<?php echo e(route('admin-products.store')); ?>" enctype="multipart/form-data">
+    <h2>Cargar nuevo producto</h2>
     <?php echo $__env->make('products._form', [ 'btnText' => 'Guardar' ], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     
 </form>

@@ -37,7 +37,17 @@ class CartController extends Controller
 
     public function show(){
         $products = Auth::user()->cart()->get();
-        return view('cart', compact('products'));
+        $warning = false;
+        foreach ($products as $product){
+            if ($product->users()->get()->count() !== 1){
+                $warning = true;
+                break;
+            }
+        }
+        return view('cart', [
+            'products' => $products,
+            'warning' => $warning,
+        ]);
     }
 
     public function cleanInactiveCarts() {

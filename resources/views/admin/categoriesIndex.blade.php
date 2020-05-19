@@ -12,7 +12,8 @@
         <form method="post" action="{{ route('categories.destroy', $category) }}">
             @csrf @method('DELETE')
             <button>Eliminar esta categoría</button>
-        </form><hr>
+        </form>
+        <hr>
     @endforeach
 
 @endsection

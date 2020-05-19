@@ -1,23 +1,37 @@
 @extends('layouts.main_layout')
 
-@section('title', 'Home')
+@section('title', 'Nueva dirección')
 
 @section('content')
-
-    @include('partials.validation-errors')
 
     <form class="passwords-form" method="POST" action="{{ route('addresses.store')}}">
         @csrf
         <h2>Nueva dirección</h2>
 
-        <input type="text" name= "street" id="street" placeholder="Calle" required>
-        <input type="number" name= "address_number" id="address_number" placeholder="Número" required>
-        <input type="text" name= "floor" id="floor" placeholder="Piso" >
-        <input type="text" name= "departament" id="departament" placeholder="departamento" >
+        @error('street')
+            <small>{{ $message }}</small>
+        @enderror
+        <input type="text" name= "street" id="street" class="@error('street') is-invalid @enderror"placeholder="Calle" required>
+        
+        @error('address_number')
+            <small>{{ $message }}</small>
+        @enderror
+        <input type="number" name= "address_number" id="address_number" class="@error('address_number') is-invalid @enderror"placeholder="Número" required>
+        
+        @error('floor')
+            <small>{{ $message }}</small>
+        @enderror
+        <input type="text" name= "floor" id="floor" class="@error('floor') is-invalid @enderror"placeholder="Piso" >
+        
+        @error('departament')
+            <small>{{ $message }}</small>
+        @enderror
+        <input type="text" name= "departament" id="departament" class="@error('departament') is-invalid @enderror"placeholder="departamento" >
+        
         <input type="hidden" name="cart" value={{$cart}}>
+        
+        
         <button type="submit" class="btn">Guardar</button>
     </form>
-
-
 
 @stop

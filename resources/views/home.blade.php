@@ -40,21 +40,28 @@
             <h2 class="contact-title">Contactanos!</h2>
             <form action={{route('contact.send')}} method="post">
                 @csrf
-                @error('name')
-                    <strong>{{ $message }}</strong>
-                @enderror
-                <input name="name" type="text" class="name @error('name') is-invalid @enderror" placeholder="Tu nombre" value= {{ old('name')}}>
-                @error('email')
-                    <strong>{{ $message }}</strong>
-                @enderror
-                <input name="email" type="email" class="email @error('email') is-invalid @enderror" placeholder="Tu email" value= {{ old('email')}}>
-                @error('message')
-                    <strong>{{ $message }}</strong>
-                @enderror
-                <textarea name= "message" placeholder="Tu mensaje" class="message @error('message') is-invalid @enderror" value= {{ old('message')}}></textarea>
+                <span>
+                    @error('name')
+                        <small>{{ $message }}</small>
+                    @enderror
+                    <input name="name" type="text" class="name @error('name') is-invalid @enderror" placeholder="Tu nombre" value= {{ old('name')}}>
+                </span>
+                <span>
+                    @error('email')
+                        <small>{{ $message }}</small>
+                    @enderror
+                    <input name="email" type="email" class="email @error('email') is-invalid @enderror" placeholder="Tu email" value= {{ old('email')}}>
+                </span>
+
+                <span class="message">
+                    @error('message')
+                        <small>{{ $message }}</small>
+                    @enderror
+                    <textarea name= "message" placeholder="Tu mensaje" class="message @error('message') is-invalid @enderror" value= {{ old('message')}}></textarea>
+                </span>
+
                 <button type="submit" class="btn">Enviar</button>
             </form>
         </article>
     </section>
-    @include('partials.validation-errors')
 @stop

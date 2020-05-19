@@ -7,6 +7,9 @@
         <form method="post" action="<?php echo e(route('checkOutCart')); ?>" class="container form-cart">
             <?php echo csrf_field(); ?>
             <h2 class="title">Carrito</h2>
+            <?php if($warning): ?> 
+                <strong style="color: red">Parece que estos productos están en el carrito de más personas. Apurate!</strong>
+            <?php endif; ?>
             <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div class="product-cart">
                     <div>

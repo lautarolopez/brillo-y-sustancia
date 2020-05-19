@@ -7,6 +7,9 @@
         <?php $__empty_1 = true; $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
           <li>
             <article class="product-card">
+              <?php if($product->stock === 0): ?>
+                  <p style="color: red">Sin stock papurro</p>
+              <?php endif; ?>
               <a class="img-container" href="<?php echo e(route('products.show', $product)); ?>">
                 <img src= <?php echo e("../../storage/product_pictures/" . $product->img_url); ?> alt= <?php echo e($product->name); ?>}>
               </a>

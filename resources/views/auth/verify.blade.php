@@ -3,8 +3,6 @@
 @section('title', 'Verificá tu correo')
 
 @section('content')
-    {{ __('Before proceeding, please check your email for a verification link.') }}
-    {{ __('If you did not receive the email') }},
     <form class="passwords-form" method="POST" action="{{ route('verification.resend') }}">
         @csrf
 

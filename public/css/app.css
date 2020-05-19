@@ -296,10 +296,15 @@ div.product-info {
 
 div.product-info p {
   word-break: break-all;
+  text-align: center;
 }
 
 div.product-collapse {
   height: 250px !important;
+}
+
+div.inside-container {
+  width: 100%;
 }
 
 @media (min-width: 700px) {
@@ -448,8 +453,17 @@ footer {
 }
 
 .login-form input,
+.login-form textarea,
+.login-form select,
+.login-form .upload-file,
 .register-form input,
-.passwords-form input {
+.register-form textarea,
+.register-form select,
+.register-form .upload-file,
+.passwords-form input,
+.passwords-form textarea,
+.passwords-form select,
+.passwords-form .upload-file {
   background: none;
   border: none;
   outline: none;
@@ -458,6 +472,7 @@ footer {
   padding: 10px 6px;
   font-size: 1rem;
   margin-bottom: 40px;
+  width: 35%;
 }
 
 .login-form a,
@@ -466,10 +481,73 @@ footer {
   color: #2d3436;
 }
 
+.login-form small,
+.register-form small,
+.passwords-form small {
+  color: red;
+}
+
+.login-form .is-invalid,
+.register-form .is-invalid,
+.passwords-form .is-invalid {
+  border-bottom: 1px solid red;
+}
+
+.login-form .upload-file,
+.register-form .upload-file,
+.passwords-form .upload-file {
+  width: 35%;
+  display: flex;
+  align-items: baseline;
+}
+
+.login-form .upload-file p,
+.register-form .upload-file p,
+.passwords-form .upload-file p {
+  margin: 0;
+  cursor: pointer;
+}
+
+.login-form .upload-file input,
+.register-form .upload-file input,
+.passwords-form .upload-file input {
+  display: none;
+}
+
+.login-form .upload-file label p,
+.register-form .upload-file label p,
+.passwords-form .upload-file label p {
+  display: inline;
+}
+
+.login-form .upload-file label i::before,
+.register-form .upload-file label i::before,
+.passwords-form .upload-file label i::before {
+  width: 35px;
+  height: 35px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.login-form .upload-file.is-invalid,
+.register-form .upload-file.is-invalid,
+.passwords-form .upload-file.is-invalid {
+  color: red;
+}
+
 @media (min-width: 1150px) {
   .login-form input,
+  .login-form textarea,
+  .login-form select,
+  .login-form .upload-file,
   .register-form input,
-  .passwords-form input {
+  .register-form textarea,
+  .register-form select,
+  .register-form .upload-file,
+  .passwords-form input,
+  .passwords-form textarea,
+  .passwords-form select,
+  .passwords-form .upload-file {
     width: 25%;
   }
 }
@@ -501,19 +579,31 @@ footer {
   text-align: center;
 }
 
-.contact form button {
-  margin: auto;
+.contact form {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-.ancho-interior {
-  max-width: 600px;
-  margin: auto;
-  padding: 0, 20px;
+.contact form span {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
-.name,
-.email,
-.message {
+.contact form span.message {
+  width: 100%;
+}
+
+.contact form span small {
+  color: red;
+  align-self: flex-start;
+}
+
+.contact form input,
+.contact form textarea {
+  width: 100%;
   background: none;
   border: none;
   outline: none;
@@ -524,58 +614,40 @@ footer {
   margin-bottom: 40px;
 }
 
-.name {
-  float: left;
-  width: 270px;
+.contact form button {
+  margin: auto;
 }
 
-.email {
-  float: right;
-  width: 270px;
+.contact form .is-invalid {
+  border-bottom: 1px solid red;
 }
 
-.name-error {
-  color: red;
-  float: left;
-  width: 270px;
+.ancho-interior {
+  max-width: 600px;
+  margin: auto;
+  padding: 0, 20px;
 }
 
-.email-error {
-  color: red;
-  float: right;
-  width: 270px;
-}
-
-.message-error {
-  color: red;
-  float: center;
-  width: 100%;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-
-.message {
+textarea.message {
   min-width: 100%;
   max-width: 100%;
 }
 
 @media (max-width: 700px) {
   .contact form {
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
 
-  .name,
-  .email {
+  .contact form span {
     width: 90%;
     margin: auto;
   }
 
-  .message {
-    min-width: 90%;
-    max-width: 90%;
+  .contact form span.message {
+    width: 90%;
+    margin: auto;
   }
 }
 

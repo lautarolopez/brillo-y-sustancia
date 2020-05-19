@@ -9,6 +9,9 @@
         @forelse ($products as $product)
           <li>
             <article class="product-card">
+              @if ($product->stock === 0)
+                  <p style="color: red">Sin stock papurro</p>
+              @endif
               <a class="img-container" href="{{route('products.show', $product)}}">
                 <img src= {{"../../storage/product_pictures/" . $product->img_url }} alt= {{ $product->name }}}>
               </a>
