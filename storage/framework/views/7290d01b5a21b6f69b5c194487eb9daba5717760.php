@@ -13,7 +13,7 @@
 
 <body>
     <?php echo $__env->make('partials.admin_navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-    <main class="container-fliud content">
+    <main class="container-fliud content admin-layout">
         <?php echo $__env->yieldContent('content'); ?>       
     </main>
     <?php $__env->startSection('scripts'); ?>

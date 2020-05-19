@@ -340,6 +340,88 @@ div.inside-container {
   color: #000000;
 }
 
+nav.admin-navbar {
+  width: 20%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0 0 4px #999;
+  transition: 0.4s ease-in;
+}
+
+nav.admin-navbar i.fa-chevron-left {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  transition: 0.2s ease-in;
+}
+
+nav.admin-navbar i.fa-chevron-left.collapsed {
+  transform: rotate(-180deg) translateX(-40px);
+}
+
+nav.admin-navbar ul {
+  list-style: none;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+}
+
+nav.admin-navbar ul a {
+  padding: 10px;
+  text-decoration: none;
+  transition: 0.6s ease-in;
+  color: #2d3436;
+}
+
+nav.admin-navbar ul a i:before {
+  width: 35px;
+  height: 35px;
+  margin: 5px;
+}
+
+nav.admin-navbar ul a:hover {
+  background-color: #2d3436;
+  color: #fff;
+}
+
+nav.admin-navbar ul a:last-child {
+  margin-top: auto;
+}
+
+nav.admin-navbar ul a.logo {
+  padding: 0;
+  color: #2d3436;
+  text-decoration: none;
+  transition: none;
+  background-color: #fff;
+}
+
+nav.admin-navbar ul a.logo h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bolder;
+  font-size: 20px;
+  margin: 20px 20px 0 20px;
+}
+
+nav.admin-navbar ul a.logo p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  margin: 0 20px 20px 20px;
+}
+
+nav.admin-navbar ul a.logo:hover {
+  color: #2d3436;
+  background-color: #fff;
+}
+
+nav.admin-navbar.admin-nav-collapse {
+  left: -20%;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -356,6 +438,10 @@ main {
   main {
     padding-top: 71px;
   }
+}
+
+.admin-layout {
+  padding-left: 25%;
 }
 
 footer {
@@ -671,7 +757,7 @@ textarea.message {
   justify-content: center;
   text-align: center;
   background-color: #e91e633b;
-  background-image: url(/images/hero-profile.jpg?1ff8d5ffb3ebe149fd764211080fde7d);
+  background-image: url(C:UsersígarÞsktoprillo-y-sustanciapublicimageshero-profile.jpg);
   background-position: center;
 }
 

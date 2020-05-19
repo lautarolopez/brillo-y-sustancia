@@ -1,3 +1,4 @@
+<?php $__env->startSection('title', 'Panel de administración'); ?>
 <?php $__env->startSection('content'); ?>
 
 

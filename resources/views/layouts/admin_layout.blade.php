@@ -13,7 +13,7 @@
 
 <body>
     @include('partials.admin_navbar')
-    <main class="container-fliud content">
+    <main class="container-fliud content admin-layout">
         @yield('content')       
     </main>
     @section('scripts')

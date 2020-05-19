@@ -1,6 +1,6 @@
 @extends('layouts.main_layout')
 
-@section('title', 'Home')
+@section('title', 'Perfil')
 
 @section('content')
 
@@ -82,8 +82,6 @@
 
         </div>
     </div>
-@else
-    <strong>QUE HACÉS ACÁ CONECTATE POR DIOS PAPÁ</strong>
 @endauth
 
 @stop

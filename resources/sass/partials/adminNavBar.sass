@@ -1,0 +1,58 @@
+nav.admin-navbar
+    width: 20%
+    height: 100vh
+    position: fixed
+    top: 0
+    left: 0
+    margin: 0
+    padding: 0
+    box-shadow: 0 0 4px #999
+    transition: 0.4s ease-in
+    i.fa-chevron-left
+        position: absolute
+        top: 15px
+        right: 15px
+        transition: 0.2s ease-in
+        &.collapsed
+            transform: rotate(-180deg) translateX(-40px)
+
+    ul
+        list-style: none
+        display: flex
+        height: 100vh
+        flex-direction: column
+        a
+            padding: 10px
+            text-decoration: none
+            transition: 0.6s ease-in
+            color: variables.$primary-color
+            i:before
+                    width: 35px
+                    height: 35px
+                    margin: 5px
+            &:hover
+                background-color: variables.$primary-color
+                color: #fff
+            &:last-child
+                margin-top: auto        
+            &.logo
+                padding: 0
+                color: variables.$primary-color
+                text-decoration: none
+                transition: none
+                background-color: #fff
+                h2
+                    font-family: 'Montserrat', sans-serif
+                    font-weight: bolder
+                    font-size: 20px
+                    margin: 20px 20px 0 20px
+                p
+                    font-family: 'Montserrat', sans-serif
+                    font-size: 10px
+                    margin: 0 20px 20px 20px
+                &:hover
+                    color: variables.$primary-color
+                    background-color: #fff
+
+nav.admin-navbar.admin-nav-collapse
+    left: -20%

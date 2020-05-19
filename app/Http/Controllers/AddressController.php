@@ -55,36 +55,9 @@ class AddressController extends Controller
         ]);;
     }
 
-
-    public function edit(Product $product){
-        return view('products.edit', [
-            'product' => $product
-        ]);
-    }
-
-    public function update(Product $product, StoreProductRequest $request){
-        $reqAux = $request->validated();
+    public function destroy(Category $category){
+        $category->delete();
         
-        $img_url = basename($request->file('image')->store('public'));
-        $product_url = preg_replace('/\s+/', '-',$reqAux['name']);
-        $auxProduct = [
-            'name' => $reqAux['name'],
-            'description' => $reqAux['description'],
-            'price' => $reqAux['price'],
-            'stock' => $reqAux['stock'],
-            'id_category' => $reqAux['category_id'],
-            'url' => $product_url,
-            'img_url' => $img_url
-        ];
-
-        $product->update($auxProduct); 
-
-        return redirect()->route('products.show', $product);
-    }
-
-    public function destroy(Product $product){
-        $product->delete();
-        
-        return redirect()->route('products.index');
+        return redirect()->route('categories.index');
     }
 }

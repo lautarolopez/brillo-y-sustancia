@@ -10,7 +10,8 @@
         <form method="post" action="<?php echo e(route('categories.destroy', $category)); ?>">
             <?php echo csrf_field(); ?> <?php echo method_field('DELETE'); ?>
             <button>Eliminar esta categoría</button>
-        </form><hr>
+        </form>
+        <hr>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 <?php $__env->stopSection(); ?>

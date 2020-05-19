@@ -1,5 +1,5 @@
 @extends('layouts.admin_layout')
-
+@section('title', 'Panel de administración')
 @section('content')
 
 
