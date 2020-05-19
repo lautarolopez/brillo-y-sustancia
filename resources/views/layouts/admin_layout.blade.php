@@ -20,5 +20,14 @@
         @include('partials.scripts_js')
     @show
 </body>
-
+<script>
+    let nav = document.querySelector('nav.admin-navbar');
+    let chevronButton = document.querySelector('i.fa-chevron-left');
+    let content = document.querySelector('.admin-layout');
+    chevronButton.addEventListener('click', (e => {
+        nav.classList.toggle('admin-nav-collapse');
+        chevronButton.classList.toggle('collapsed');
+        content.classList.toggle('collapsed');
+    }))
+</script>
 </html>

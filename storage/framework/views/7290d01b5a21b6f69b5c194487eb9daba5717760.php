@@ -20,5 +20,14 @@
         <?php echo $__env->make('partials.scripts_js', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <?php echo $__env->yieldSection(); ?>
 </body>
-
+<script>
+    let nav = document.querySelector('nav.admin-navbar');
+    let chevronButton = document.querySelector('i.fa-chevron-left');
+    let content = document.querySelector('.admin-layout');
+    chevronButton.addEventListener('click', (e => {
+        nav.classList.toggle('admin-nav-collapse');
+        chevronButton.classList.toggle('collapsed');
+        content.classList.toggle('collapsed');
+    }))
+</script>
 </html><?php /**PATH /home/lautarolopez/Desktop/brillo-y-sustancia/resources/views/layouts/admin_layout.blade.php ENDPATH**/ ?>

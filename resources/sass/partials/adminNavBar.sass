@@ -1,6 +1,6 @@
 nav.admin-navbar
     width: 20%
-    height: 100vh
+    height: 100%
     position: fixed
     top: 0
     left: 0
@@ -8,10 +8,17 @@ nav.admin-navbar
     padding: 0
     box-shadow: 0 0 4px #999
     transition: 0.4s ease-in
+    @media (max-width: 992px)
+        width: 100vw
+        height: auto
+        i.fa-chevron-left
+            display: none
     i.fa-chevron-left
         position: absolute
+        width: 35px
+        height: 35px
         top: 15px
-        right: 15px
+        right: 0
         transition: 0.2s ease-in
         &.collapsed
             transform: rotate(-180deg) translateX(-40px)
@@ -19,8 +26,13 @@ nav.admin-navbar
     ul
         list-style: none
         display: flex
-        height: 100vh
+        height: 100%
         flex-direction: column
+        margin: 0
+        button
+            display: none
+            margin: 0 15px
+            order: 10
         a
             padding: 10px
             text-decoration: none
@@ -29,13 +41,14 @@ nav.admin-navbar
             i:before
                     width: 35px
                     height: 35px
-                    margin: 5px
+                    margin: 7px
             &:hover
                 background-color: variables.$primary-color
                 color: #fff
             &:last-child
                 margin-top: auto        
             &.logo
+                margin: 0
                 padding: 0
                 color: variables.$primary-color
                 text-decoration: none
@@ -53,6 +66,65 @@ nav.admin-navbar
                 &:hover
                     color: variables.$primary-color
                     background-color: #fff
+        @media (max-width: 992px)
+            width: 100vw
+            height: auto
+            flex-direction: row
+            justify-content: space-between
+            align-items: center
+            flex-wrap: wrap
+            a
+                height: auto
+                padding: 0
+                margin:0
+                li
+                    display: none
+                &:last-child
+                    padding: 0
+                    margin: 0
+            button
+                display: inline
+                background-color: #fff
+                border: 1px solid gray
+                border-radius: 5px
+                width: 45px
+                height: 45px
+                transition: 0.4s linear
+                i
+                    font-size: 30px
+                &:hover
+                    background-color: variables.$primary-color
+                    color: #fff
+
 
 nav.admin-navbar.admin-nav-collapse
     left: -20%
+
+
+span.collapsed-nav
+    margin: 0
+    padding: 0
+    display: none
+    transition: 0.4s ease-in
+    &.collapsed
+        position: absolute
+        top: 65px
+        right: 20px
+        display: flex
+        flex-direction: column
+        width: auto
+        background-color: #fff
+        box-shadow: 0 0 4px #999
+        a.menu-element
+            padding: 10px
+            text-decoration: none
+            transition: 0.6s ease-in
+            color: variables.$primary-color
+            list-style: none
+            i:before
+                    width: 35px
+                    height: 35px
+                    margin: 7px
+            &:hover
+                background-color: variables.$primary-color
+                color: #fff

@@ -342,7 +342,7 @@ div.inside-container {
 
 nav.admin-navbar {
   width: 20%;
-  height: 100vh;
+  height: 100%;
   position: fixed;
   top: 0;
   left: 0;
@@ -352,10 +352,23 @@ nav.admin-navbar {
   transition: 0.4s ease-in;
 }
 
+@media (max-width: 992px) {
+  nav.admin-navbar {
+    width: 100vw;
+    height: auto;
+  }
+
+  nav.admin-navbar i.fa-chevron-left {
+    display: none;
+  }
+}
+
 nav.admin-navbar i.fa-chevron-left {
   position: absolute;
+  width: 35px;
+  height: 35px;
   top: 15px;
-  right: 15px;
+  right: 0;
   transition: 0.2s ease-in;
 }
 
@@ -366,8 +379,15 @@ nav.admin-navbar i.fa-chevron-left.collapsed {
 nav.admin-navbar ul {
   list-style: none;
   display: flex;
-  height: 100vh;
+  height: 100%;
   flex-direction: column;
+  margin: 0;
+}
+
+nav.admin-navbar ul button {
+  display: none;
+  margin: 0 15px;
+  order: 10;
 }
 
 nav.admin-navbar ul a {
@@ -380,7 +400,7 @@ nav.admin-navbar ul a {
 nav.admin-navbar ul a i:before {
   width: 35px;
   height: 35px;
-  margin: 5px;
+  margin: 7px;
 }
 
 nav.admin-navbar ul a:hover {
@@ -393,6 +413,7 @@ nav.admin-navbar ul a:last-child {
 }
 
 nav.admin-navbar ul a.logo {
+  margin: 0;
   padding: 0;
   color: #2d3436;
   text-decoration: none;
@@ -418,8 +439,90 @@ nav.admin-navbar ul a.logo:hover {
   background-color: #fff;
 }
 
+@media (max-width: 992px) {
+  nav.admin-navbar ul {
+    width: 100vw;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  nav.admin-navbar ul a {
+    height: auto;
+    padding: 0;
+    margin: 0;
+  }
+
+  nav.admin-navbar ul a li {
+    display: none;
+  }
+
+  nav.admin-navbar ul a:last-child {
+    padding: 0;
+    margin: 0;
+  }
+
+  nav.admin-navbar ul button {
+    display: inline;
+    background-color: #fff;
+    border: 1px solid gray;
+    border-radius: 5px;
+    width: 45px;
+    height: 45px;
+    transition: 0.4s linear;
+  }
+
+  nav.admin-navbar ul button i {
+    font-size: 30px;
+  }
+
+  nav.admin-navbar ul button:hover {
+    background-color: #2d3436;
+    color: #fff;
+  }
+}
+
 nav.admin-navbar.admin-nav-collapse {
   left: -20%;
+}
+
+span.collapsed-nav {
+  margin: 0;
+  padding: 0;
+  display: none;
+  transition: 0.4s ease-in;
+}
+
+span.collapsed-nav.collapsed {
+  position: absolute;
+  top: 65px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  background-color: #fff;
+  box-shadow: 0 0 4px #999;
+}
+
+span.collapsed-nav.collapsed a.menu-element {
+  padding: 10px;
+  text-decoration: none;
+  transition: 0.6s ease-in;
+  color: #2d3436;
+  list-style: none;
+}
+
+span.collapsed-nav.collapsed a.menu-element i:before {
+  width: 35px;
+  height: 35px;
+  margin: 7px;
+}
+
+span.collapsed-nav.collapsed a.menu-element:hover {
+  background-color: #2d3436;
+  color: #fff;
 }
 
 * {
@@ -441,7 +544,21 @@ main {
 }
 
 .admin-layout {
+  width: 100%;
+  height: 90vh;
   padding-left: 25%;
+  transition: 0.4s ease-in;
+}
+
+.admin-layout.collapsed {
+  padding-left: 5%;
+}
+
+@media (max-width: 992px) {
+  .admin-layout {
+    padding-left: 5%;
+    margin-top: 9vh;
+  }
 }
 
 footer {
