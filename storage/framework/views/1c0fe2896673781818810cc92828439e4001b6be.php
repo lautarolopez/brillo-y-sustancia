@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', 'Home'); ?>
+<?php $__env->startSection('title', $product->name); ?>
 
 <?php $__env->startSection('content'); ?>
 
@@ -10,9 +10,9 @@
     <br/>
     <small>Stock <?php echo e($product->stock); ?> </small>
     <br/>
-    <?php if($category): ?>
+    
         <small>Category: <?php echo e($category); ?></small>
-    <?php endif; ?>
+    
     <br/>
     <img src=<?php echo e("../../storage/product_pictures/" . $product->img_url); ?> alt="<?php echo e($product->name); ?>">
 
