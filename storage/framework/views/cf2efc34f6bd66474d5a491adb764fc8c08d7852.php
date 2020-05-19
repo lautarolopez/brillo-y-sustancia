@@ -13,8 +13,8 @@
                         <h4><?php echo e($product->name); ?></h4>
                         <div class="product">
                             <button class="btn radius-none" onclick='minus(event, "<?php echo e($product->id); ?>")'><i class="fas fa-minus"></i></button>
-                            <input type="number" class="form-control" min="1" id=<?php echo e($product->id . "inputdata"); ?> name=<?php echo e($product->id); ?> value=<?php echo e($product->pivot->quantity); ?>>
-                            <button class="btn radius-none" onclick='plus(event, "<?php echo e($product->id); ?>", "<?php echo e($product->stock); ?>")'><i class="fas fa-plus"></i></button>
+                            <input type="number" readonly class="form-control" min="1" id=<?php echo e($product->id . "inputdata"); ?> name=<?php echo e($product->id); ?> value=<?php echo e($product->pivot->quantity); ?>>
+                            <button class="btn radius-none" onclick='plus(event, "<?php echo e($product->id); ?>", <?php echo e($product->stock); ?>)'><i class="fas fa-plus"></i></button>
                             <a class="btn radius-none" href="#" onclick='deleteItem(event, "<?php echo e($product->url); ?>")'>Eliminar</a>
                         </div>
                     </div>
@@ -31,6 +31,7 @@
 <?php $__env->stopSection(); ?>
 
 <script>
+
     let minus = (e, id) => {
         e.preventDefault();
         let input = document.getElementById(id + "inputdata");
@@ -42,7 +43,7 @@
     let plus = (e, id, stock) => {
         e.preventDefault();
         let input = document.getElementById(id + "inputdata");
-        if (input.value + 1 < stock){ 
+        if (input.value < stock){ 
             input.setAttribute('value', input.value++);
         } else {
             alert("No tenemos tanto stock! :/")

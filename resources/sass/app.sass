@@ -141,25 +141,36 @@ textarea.message
 .hero-profile 
     width: 100%
     height: 270px
+    position: relative
     display: flex
     flex-direction: column
     justify-content: center
     text-align: center
     background-color: #e91e633b
+    background-image: url(C:\Users\Edgar\Desktop\brillo-y-sustancia\public\images\hero-profile.jpg)
+    background-position: center
+.hero-filter
+    width: 100%
+    background: #000000a1
+    height: 100%
+    position: absolute
+    bottom: 0
 
 .hero-profile 
     h2 
         padding-top: 15px
         text-transform: capitalize
+        color: white
+        position: relative
 
 .img-profile 
     img 
         max-width: 100%
         width: 150px
+        position: relative
 
 .information
     background-color: grey
-    height: 400px
 
 .row
     margin-right: auto
@@ -214,3 +225,17 @@ textarea.message
     .form-control
         width: 20%
         height: inherit
+
+.edit-profile
+    input
+        width: 100%
+.password-container
+    display: flex
+
+.field-icon
+  float: right
+  margin-left: -32px
+  margin-top: 17px
+  position: relative
+  z-index: 2
+  cursor: pointer
