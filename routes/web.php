@@ -16,6 +16,9 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
+Route::post('/editar-perfil', 'UserController@editarPerfil');
+// Route::get('/editar-direccion', 'AddressController@editAddress');
+
 Route::get('/perfil', function(){
     $user = Auth::user();
     return view('profile', compact('user'));
