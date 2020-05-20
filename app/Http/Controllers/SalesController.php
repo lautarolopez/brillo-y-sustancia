@@ -52,8 +52,8 @@ class SalesController extends Controller
             $salesInformation[] = [
                 'sale' => $sale,
                 'products' => $sale->products()->get(),
-                'client' => $sale->client()->get(),
-                'address' => $sale->address()->get(),
+                'client' => $sale->client()->get()[0],
+                'address' => $sale->address()->get()[0],
             ]; 
         }
         return view('admin.salesIndex', [

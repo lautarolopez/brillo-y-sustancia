@@ -551,12 +551,12 @@ main {
 }
 
 .admin-layout.collapsed {
-  padding-left: 5%;
+  padding-left: 0;
 }
 
 @media (max-width: 992px) {
   .admin-layout {
-    padding-left: 5%;
+    padding-left: 0;
     margin-top: 9vh;
   }
 }
@@ -678,6 +678,23 @@ footer {
   width: 35%;
 }
 
+@media (max-width: 992px) {
+  .login-form input,
+  .login-form textarea,
+  .login-form select,
+  .login-form .upload-file,
+  .register-form input,
+  .register-form textarea,
+  .register-form select,
+  .register-form .upload-file,
+  .passwords-form input,
+  .passwords-form textarea,
+  .passwords-form select,
+  .passwords-form .upload-file {
+    width: 80%;
+  }
+}
+
 .login-form a,
 .register-form a,
 .passwords-form a {
@@ -702,6 +719,14 @@ footer {
   width: 35%;
   display: flex;
   align-items: baseline;
+}
+
+@media (max-width: 992px) {
+  .login-form .upload-file,
+  .register-form .upload-file,
+  .passwords-form .upload-file {
+    width: 80%;
+  }
 }
 
 .login-form .upload-file p,
@@ -861,6 +886,79 @@ textarea.message {
   text-transform: uppercase;
   letter-spacing: 4px;
   font-weight: 400;
+}
+
+/*Estilos index admin panel*/
+
+h2.title {
+  font-size: 32px;
+  color: #2d3436;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-align: center;
+  font-weight: 400;
+}
+
+ul.items-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+}
+
+ul.items-list li {
+  width: auto;
+  min-width: 250px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 45px;
+}
+
+ul.items-list li.sales {
+  height: 600px;
+}
+
+form.single-button-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 45px;
+}
+
+span.item-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+span.item-info p {
+  max-width: 250px;
+}
+
+span.item-info p.description-paragraph {
+  height: 200px;
+  overflow: scroll;
+}
+
+span.item-info p.enum-paragraph {
+  height: 100px;
+  overflow: scroll;
+  text-transform: capitalize;
+}
+
+span.item-info img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  margin: 10px 15px;
+  align-self: center;
+}
+
+span.item-info i {
+  font-size: 50px;
+  align-self: center;
 }
 
 /*Estilos profile.php*/

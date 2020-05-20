@@ -24,9 +24,9 @@ main
     padding-left: 25%
     transition: 0.4s ease-in
     &.collapsed
-        padding-left: 5%
+        padding-left: 0
     @media (max-width: 992px)
-        padding-left: 5%
+        padding-left: 0
         margin-top: 9vh
 
 
@@ -149,6 +149,64 @@ textarea.message
         text-transform: uppercase
         letter-spacing: 4px
         font-weight: 400
+
+
+/*Estilos index admin panel*/
+h2.title
+    font-size: 32px
+    color: variables.$primary-color
+    margin-bottom: 40px
+    text-transform: uppercase
+    letter-spacing: 4px
+    text-align: center
+    font-weight: 400
+
+ul.items-list
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    list-style: none
+    li
+        width: auto
+        min-width: 250px
+        margin: 0 auto
+        display: flex
+        flex-direction: column
+        margin-bottom: 45px
+        &.sales
+            height: 600px
+
+form.single-button-form
+    display: flex
+    align-items: center
+    justify-content: center
+    margin-bottom: 45px
+
+
+span.item-info
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    p
+        max-width: 250px
+        &.description-paragraph
+            height: 200px
+            overflow: scroll
+        &.enum-paragraph
+            height: 100px
+            overflow: scroll
+            text-transform: capitalize     
+    img
+        border-radius: 50%
+        width: 150px
+        height: 150px
+        margin: 10px 15px
+        align-self: center
+    i
+        font-size: 50px
+        align-self: center
+
+
 
 
 /*Estilos profile.php*/
