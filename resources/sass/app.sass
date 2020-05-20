@@ -207,7 +207,36 @@ span.item-info
         align-self: center
 
 
-
+/*Estilos index direcciones*/
+form.addresses-form
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    .address-container
+        width: 80%
+        display: flex
+        justify-content: space-between
+        input
+            display: none
+            &:checked ~ label
+                border: solid 2px variables.$primary-color
+        label
+            width: 100%
+            cursor: pointer
+            border: solid 2px #fff
+            padding: 10px
+            margin: 0
+            transition: 0.4s linear
+            &:hover 
+                background-color: variables.$primary-color
+                color: #fff
+        button
+            margin: 0 15px
+            border: none
+            background-color: #fff
+            i
+                font-size: 25px
 
 /*Estilos profile.php*/
 .hero-profile 

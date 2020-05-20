@@ -17,7 +17,6 @@ Route::get('/', function () {
 })->name('home');
 
 Route::post('/editar-perfil', 'UserController@editarPerfil');
-// Route::get('/editar-direccion', 'AddressController@editAddress');
 
 Route::get('/perfil', function(){
     $user = Auth::user();
@@ -41,19 +40,20 @@ Route::resource('productos', 'ProductController')->names([
     'index',
     'show',
 ]);
+Route::get('/productos/categorias/{category}', 'ProductController@categoryIndex')->name('products.index.category');
 Route::resource('mis-direcciones', 'AddressController')->names([
     'store' => 'addresses.store',
     'index' => 'addresses.index',
     'create' => 'addresses.create',
-    'show' => 'addresses.show',
     'update' => 'addresses.update',
-    'destroy' => 'addresses.destroy',
-    'edit'=> 'addresses.edit',
 ])->parameters([
     'direcciones' => 'address'
-])->middleware('auth');
-
-Route::get('/productos/categorias/{category}', 'ProductController@categoryIndex')->name('products.index.category');
+])->middleware('auth')->only([
+    'store',
+    'index',
+    'create',
+    'update',
+]);
 Route::localizeAuth();
 
 // Admin panel routes

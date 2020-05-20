@@ -18,12 +18,6 @@ class AddressController extends Controller
     }
 
 
-    public function show(Address $address){
-        return view('addresses.show', [
-            'address' => $address,
-        ]);
-    }
-
     public function create(Request $cart){
         return view('addresses.create', [
             'address' => new Address,
@@ -55,9 +49,4 @@ class AddressController extends Controller
         ]);;
     }
 
-    public function destroy(Category $category){
-        $category->delete();
-        
-        return redirect()->route('categories.index');
-    }
 }

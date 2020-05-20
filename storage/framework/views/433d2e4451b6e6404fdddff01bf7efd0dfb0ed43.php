@@ -2,7 +2,6 @@
 
 <?php $__env->startSection('content'); ?>
 
-    
     <?php if($products->isNotEmpty()): ?>
         <form method="post" action="<?php echo e(route('checkOutCart')); ?>" class="container form-cart">
             <?php echo csrf_field(); ?>

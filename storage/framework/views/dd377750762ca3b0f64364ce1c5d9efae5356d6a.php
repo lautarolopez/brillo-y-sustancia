@@ -26,7 +26,7 @@
                       <a href="<?php echo e(route('addToCart', $product )); ?>"><i class="fas fa-cart-plus"></i></a>
                       <p class="product-price">$<?php echo e($product->price); ?></p>
                     <?php else: ?>
-                      <a href="#"><i class="fas fa-ban"></i></a>
+                      <a><i class="fas fa-ban"></i></a>
                       <p class="product-price" style="color: red; text-transform: uppercase">Sin stock</p>
                     <?php endif; ?>
                     <i id=<?php echo e($product->id . 'chevron'); ?> class="fas fa-chevron-down" onclick='buttonToggler(<?php echo e($product->id); ?>)'></i>

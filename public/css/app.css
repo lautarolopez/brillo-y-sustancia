@@ -966,6 +966,53 @@ span.item-info i {
   align-self: center;
 }
 
+/*Estilos index direcciones*/
+
+form.addresses-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+form.addresses-form .address-container {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
+form.addresses-form .address-container input {
+  display: none;
+}
+
+form.addresses-form .address-container input:checked ~ label {
+  border: solid 2px #2d3436;
+}
+
+form.addresses-form .address-container label {
+  width: 100%;
+  cursor: pointer;
+  border: solid 2px #fff;
+  padding: 10px;
+  margin: 0;
+  transition: 0.4s linear;
+}
+
+form.addresses-form .address-container label:hover {
+  background-color: #2d3436;
+  color: #fff;
+}
+
+form.addresses-form .address-container button {
+  margin: 0 15px;
+  border: none;
+  background-color: #fff;
+}
+
+form.addresses-form .address-container button i {
+  font-size: 25px;
+}
+
 /*Estilos profile.php*/
 
 .hero-profile {

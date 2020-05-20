@@ -26,7 +26,7 @@
         @error('departament')
             <small>{{ $message }}</small>
         @enderror
-        <input type="text" name= "departament" id="departament" class="@error('departament') is-invalid @enderror"placeholder="departamento" >
+        <input type="text" name= "departament" id="departament" class="@error('departament') is-invalid @enderror"placeholder="Departamento" >
         
         <input type="hidden" name="cart" value={{$cart}}>
         
