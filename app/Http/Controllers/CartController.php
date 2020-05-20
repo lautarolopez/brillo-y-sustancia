@@ -61,6 +61,6 @@ class CartController extends Controller
                } 
             }
         }
-        return view('admin.dashboard');
+        return redirect()->route('users.index');
     }
 }

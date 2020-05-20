@@ -4,6 +4,11 @@
 
 
     <h2 class="title">Usuarios registrados</h2>
+
+    <form class="single-button-form" action="{{route('cleanCarts')}}" method="get">
+        <button type="submit" class="btn">Limpiar carritos inactivos</button>
+    </form>
+
     <ul class="items-list">
         @foreach ($users as $user)
             <li>

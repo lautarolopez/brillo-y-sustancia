@@ -245,6 +245,11 @@ article.product-card a.img-container img {
      object-position: center;
 }
 
+article.product-card a.img-container img.no-stock {
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+}
+
 article.product-card a {
   width: 100%;
   color: black;

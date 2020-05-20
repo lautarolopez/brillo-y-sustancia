@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', 'Home'); ?>
+<?php $__env->startSection('title', $category); ?>
 
 <?php $__env->startSection('content'); ?>
   <section class="products-container">
@@ -7,11 +7,12 @@
         <?php $__empty_1 = true; $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
           <li>
             <article class="product-card">
-              <?php if($product->stock === 0): ?>
-                  <p style="color: red">Sin stock papurro</p>
-              <?php endif; ?>
               <a class="img-container" href="<?php echo e(route('products.show', $product)); ?>">
-                <img src= <?php echo e("../../storage/product_pictures/" . $product->img_url); ?> alt= <?php echo e($product->name); ?>}>
+                <?php if($product->stock !== 0): ?>
+                  <img src= <?php echo e("../../storage/product_pictures/" . $product->img_url); ?> alt= <?php echo e($product->name); ?>}> 
+                <?php else: ?>
+                  <img class="no-stock" src= <?php echo e("../../storage/product_pictures/" . $product->img_url); ?> alt= <?php echo e($product->name); ?>}>
+                <?php endif; ?>
               </a>
               <div class="inside-container">
                 <a href="<?php echo e(route('products.show', $product)); ?>">
@@ -21,8 +22,13 @@
                     <p class="product-description"><?php echo e($product->description); ?></p>
                 </div>
                 <span class="card-footer">
-                    <a href="<?php echo e(route('addToCart', $product )); ?>"><i class="fas fa-cart-plus"></i></a>
-                    <p class="product-price">$<?php echo e($product->price); ?></p>
+                    <?php if($product->stock !== 0): ?>
+                      <a href="<?php echo e(route('addToCart', $product )); ?>"><i class="fas fa-cart-plus"></i></a>
+                      <p class="product-price">$<?php echo e($product->price); ?></p>
+                    <?php else: ?>
+                      <a href="#"><i class="fas fa-ban"></i></a>
+                      <p class="product-price" style="color: red; text-transform: uppercase">Sin stock</p>
+                    <?php endif; ?>
                     <i id=<?php echo e($product->id . 'chevron'); ?> class="fas fa-chevron-down" onclick='buttonToggler(<?php echo e($product->id); ?>)'></i>
                 </span>
               </div>

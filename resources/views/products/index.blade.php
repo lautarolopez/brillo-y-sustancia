@@ -1,6 +1,6 @@
 @extends('layouts.main_layout')
 
-@section('title', 'Home')
+@section('title', $category)
 
 @section('content')
   <section class="products-container">
@@ -9,11 +9,12 @@
         @forelse ($products as $product)
           <li>
             <article class="product-card">
-              @if ($product->stock === 0)
-                  <p style="color: red">Sin stock papurro</p>
-              @endif
               <a class="img-container" href="{{route('products.show', $product)}}">
-                <img src= {{"../../storage/product_pictures/" . $product->img_url }} alt= {{ $product->name }}}>
+                @if ($product->stock !== 0)
+                  <img src= {{"../../storage/product_pictures/" . $product->img_url }} alt= {{ $product->name }}}> 
+                @else
+                  <img class="no-stock" src= {{"../../storage/product_pictures/" . $product->img_url }} alt= {{ $product->name }}}>
+                @endif
               </a>
               <div class="inside-container">
                 <a href="{{route('products.show', $product)}}">
@@ -23,8 +24,13 @@
                     <p class="product-description">{{ $product->description }}</p>
                 </div>
                 <span class="card-footer">
-                    <a href="{{ route('addToCart', $product ) }}"><i class="fas fa-cart-plus"></i></a>
-                    <p class="product-price">${{ $product->price }}</p>
+                    @if ($product->stock !== 0)
+                      <a href="{{ route('addToCart', $product ) }}"><i class="fas fa-cart-plus"></i></a>
+                      <p class="product-price">${{ $product->price }}</p>
+                    @else
+                      <a href="#"><i class="fas fa-ban"></i></a>
+                      <p class="product-price" style="color: red; text-transform: uppercase">Sin stock</p>
+                    @endif
                     <i id={{ $product->id . 'chevron'}} class="fas fa-chevron-down" onclick='buttonToggler({{$product->id}})'></i>
                 </span>
               </div>
