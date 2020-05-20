@@ -45,7 +45,8 @@
     </form>
 
 <script>
-    document.querySelector('form.addresses-form').addEventListener('submit', (e) => {
+    let formAddresses = document.querySelector('form.addresses-form'); 
+    formAddresses.addEventListener('submit', (e) => {
         e.preventDefault();
         let radios = document.querySelectorAll('input[type=radio]:checked')
         if(radios.length === 0){
@@ -54,9 +55,9 @@
             alertElement.style.color = "red";
             document.querySelector('span.alert').appendChild(alertElement);
         } else {
-            this.submit();
+            formAddresses.submit();
         }
-    } )
+    })
 </script>
 <?php $__env->stopSection(); ?>
 
