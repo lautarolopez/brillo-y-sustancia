@@ -1,15 +1,12 @@
-@extends('layouts.main_layout')
+@extends('layouts.admin_layout')
 
 @section('title', 'Home')
 
 @section('content')
 
-@include('partials.validation-errors')
-
-<h1>Editar producto</h1>
-<form method="POST" action="{{ route('admin-products.update', $product)}}" enctype="multipart/form-data">
+<form class="passwords-form" method="POST" action="{{ route('admin-products.update', $product)}}" enctype="multipart/form-data">
     @method('PATCH')
-    
+    <h2>Editar producto</h2>    
     @include('products._form', [ 'btnText' => 'Actualizar' ])
 
 </form>

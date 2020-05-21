@@ -6,21 +6,19 @@
 
         <h2>Confirmá tu contraseña</h2>
 
-                <input id="password" type="password" name="password" placeholder="Contraseña" {{-- class="@error('password') is-invalid @enderror" --}} required autocomplete="current-password">
-                @error('password')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
+            @error('password')
+                <small>{{ $message }}</small>
+            @enderror
+            <input id="password" type="password" name="password" placeholder="Contraseña" class="@error('password') is-invalid @enderror" required autocomplete="current-password">
 
-                <button type="submit" class="btn">
-                    Enviar
-                </button>
+            <button type="submit" class="btn">
+                Enviar
+            </button>
 
-                @if (Route::has('password.request'))
-                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                        Olvidaste tu contraseña?
-                    </a>
-                @endif
+            @if (Route::has('password.request'))
+                <a class="btn btn-link" href="{{ route('password.request') }}">
+                    Olvidaste tu contraseña?
+                </a>
+            @endif
     </form>
 @endsection

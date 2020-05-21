@@ -1,18 +1,28 @@
 @extends('layouts.admin_layout')
-
+@section('title', 'Categorías')
 @section('content')
 
-<form action="{{route('categories.create')}}" method="get">
-    <button class="btn" >Agregar categoría</button>
+<h2 class="title">Categorías</h2>
+
+<form class="single-button-form" action="{{route('categories.create')}}" method="get">
+    <button class="btn index-action" >Nueva categoría</button>
 </form>
 
-
-    @foreach ($categories as $category)
-        <h3>{{$category->name}}</h3>
-        <form method="post" action="{{ route('categories.destroy', $category) }}">
-            @csrf @method('DELETE')
-            <button>Eliminar esta categoría</button>
-        </form><hr>
-    @endforeach
+    <ul class="items-list">
+        @foreach ($categories as $category)
+            <li class="categories-li">
+                <span class="items-info">
+                    <strong>Nombre: </strong>
+                    <p style="text-transform: capitalize">{{$category->name}}</p>
+                    <strong>Cantidad de productos:</strong>
+                    <p>{{$category->products->count()}}</p>
+                </span>
+                <form method="post" action="{{ route('categories.destroy', $category) }}">
+                    @csrf @method('DELETE')
+                    <button class="btn">Eliminar esta categoría</button>
+                </form>
+            </li>
+        @endforeach
+    </ul>
 
 @endsection

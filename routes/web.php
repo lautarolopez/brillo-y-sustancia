@@ -20,7 +20,6 @@ Route::get('/', function () {
 Route::post('/send', 'ContactController@send');
 
 Route::post('/editar-perfil', 'UserController@editarPerfil');
-// Route::get('/editar-direccion', 'AddressController@editAddress');
 
 Route::get('/perfil', function(){
     $user = Auth::user();
@@ -44,19 +43,20 @@ Route::resource('productos', 'ProductController')->names([
     'index',
     'show',
 ]);
+Route::get('/productos/categorias/{category}', 'ProductController@categoryIndex')->name('products.index.category');
 Route::resource('mis-direcciones', 'AddressController')->names([
     'store' => 'addresses.store',
     'index' => 'addresses.index',
     'create' => 'addresses.create',
-    'show' => 'addresses.show',
     'update' => 'addresses.update',
-    'destroy' => 'addresses.destroy',
-    'edit'=> 'addresses.edit',
 ])->parameters([
     'direcciones' => 'address'
-])->middleware('auth');
-
-Route::get('/productos/categorias/{category}', 'ProductController@categoryIndex')->name('products.index.category');
+])->middleware('auth')->only([
+    'store',
+    'index',
+    'create',
+    'update',
+]);
 Route::localizeAuth();
 
 // Admin panel routes
@@ -83,3 +83,4 @@ Route::resource('/bys-admin/productos', 'ProductController')->names([
     'index',
 ]);
 Route::get('/bys-admin/productos', 'ProductController@indexAdmin')->name('admin-products.index')->middleware('adminPermission');
+Route::get('/bys-admin/limpiar-carritos-inactivos', 'CartController@cleanInactiveCarts')->name('cleanCarts')->middleware('adminPermission');

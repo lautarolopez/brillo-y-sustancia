@@ -27,6 +27,7 @@ class SalesController extends Controller
 
     public function completeSale(Request $request) {
         $products = Auth::user()->cart()->get();
+        Auth::user()->update(['last_update_cart' => now()]);
         $newSale = Sale::create([
                 'user_id' => Auth::user()->id,
                 'address_id' => $request['address'],
@@ -51,8 +52,8 @@ class SalesController extends Controller
             $salesInformation[] = [
                 'sale' => $sale,
                 'products' => $sale->products()->get(),
-                'client' => $sale->client()->get(),
-                'address' => $sale->address()->get(),
+                'client' => $sale->client()->get()[0],
+                'address' => $sale->address()->get()[0],
             ]; 
         }
         return view('admin.salesIndex', [

@@ -245,6 +245,11 @@ article.product-card a.img-container img {
      object-position: center;
 }
 
+article.product-card a.img-container img.no-stock {
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+}
+
 article.product-card a {
   width: 100%;
   color: black;
@@ -296,10 +301,15 @@ div.product-info {
 
 div.product-info p {
   word-break: break-all;
+  text-align: center;
 }
 
 div.product-collapse {
   height: 250px !important;
+}
+
+div.inside-container {
+  width: 100%;
 }
 
 @media (min-width: 700px) {
@@ -335,6 +345,191 @@ div.product-collapse {
   color: #000000;
 }
 
+nav.admin-navbar {
+  width: 20%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0 0 4px #999;
+  transition: 0.4s ease-in;
+}
+
+@media (max-width: 992px) {
+  nav.admin-navbar {
+    width: 100vw;
+    height: auto;
+  }
+
+  nav.admin-navbar i.fa-chevron-left {
+    display: none;
+  }
+}
+
+nav.admin-navbar i.fa-chevron-left {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top: 15px;
+  right: 0;
+  transition: 0.2s ease-in;
+}
+
+nav.admin-navbar i.fa-chevron-left.collapsed {
+  transform: rotate(-180deg) translateX(-40px);
+}
+
+nav.admin-navbar ul {
+  list-style: none;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  margin: 0;
+}
+
+nav.admin-navbar ul button {
+  display: none;
+  margin: 0 15px;
+  order: 10;
+}
+
+nav.admin-navbar ul a {
+  padding: 10px;
+  text-decoration: none;
+  transition: 0.6s ease-in;
+  color: #2d3436;
+}
+
+nav.admin-navbar ul a i:before {
+  width: 35px;
+  height: 35px;
+  margin: 7px;
+}
+
+nav.admin-navbar ul a:hover {
+  background-color: #2d3436;
+  color: #fff;
+}
+
+nav.admin-navbar ul a:last-child {
+  margin-top: auto;
+}
+
+nav.admin-navbar ul a.logo {
+  margin: 0;
+  padding: 0;
+  color: #2d3436;
+  text-decoration: none;
+  transition: none;
+  background-color: #fff;
+}
+
+nav.admin-navbar ul a.logo h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bolder;
+  font-size: 20px;
+  margin: 20px 20px 0 20px;
+}
+
+nav.admin-navbar ul a.logo p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  margin: 0 20px 20px 20px;
+}
+
+nav.admin-navbar ul a.logo:hover {
+  color: #2d3436;
+  background-color: #fff;
+}
+
+@media (max-width: 992px) {
+  nav.admin-navbar ul {
+    width: 100vw;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  nav.admin-navbar ul a {
+    height: auto;
+    padding: 0;
+    margin: 0;
+  }
+
+  nav.admin-navbar ul a li {
+    display: none;
+  }
+
+  nav.admin-navbar ul a:last-child {
+    padding: 0;
+    margin: 0;
+  }
+
+  nav.admin-navbar ul button {
+    display: inline;
+    background-color: #fff;
+    border: 1px solid gray;
+    border-radius: 5px;
+    width: 45px;
+    height: 45px;
+    transition: 0.4s linear;
+  }
+
+  nav.admin-navbar ul button i {
+    font-size: 30px;
+  }
+
+  nav.admin-navbar ul button:hover {
+    background-color: #2d3436;
+    color: #fff;
+  }
+}
+
+nav.admin-navbar.admin-nav-collapse {
+  left: -20%;
+}
+
+span.collapsed-nav {
+  margin: 0;
+  padding: 0;
+  display: none;
+  transition: 0.4s ease-in;
+}
+
+span.collapsed-nav.collapsed {
+  position: absolute;
+  top: 65px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  background-color: #fff;
+  box-shadow: 0 0 4px #999;
+}
+
+span.collapsed-nav.collapsed a.menu-element {
+  padding: 10px;
+  text-decoration: none;
+  transition: 0.6s ease-in;
+  color: #2d3436;
+  list-style: none;
+}
+
+span.collapsed-nav.collapsed a.menu-element i:before {
+  width: 35px;
+  height: 35px;
+  margin: 7px;
+}
+
+span.collapsed-nav.collapsed a.menu-element:hover {
+  background-color: #2d3436;
+  color: #fff;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -350,6 +545,24 @@ main {
 @media (min-width: 992px) {
   main {
     padding-top: 71px;
+  }
+}
+
+.admin-layout {
+  width: 100%;
+  height: 90vh;
+  padding-left: 25%;
+  transition: 0.4s ease-in;
+}
+
+.admin-layout.collapsed {
+  padding-left: 0;
+}
+
+@media (max-width: 992px) {
+  .admin-layout {
+    padding-left: 0;
+    margin-top: 9vh;
   }
 }
 
@@ -448,8 +661,17 @@ footer {
 }
 
 .login-form input,
+.login-form textarea,
+.login-form select,
+.login-form .upload-file,
 .register-form input,
-.passwords-form input {
+.register-form textarea,
+.register-form select,
+.register-form .upload-file,
+.passwords-form input,
+.passwords-form textarea,
+.passwords-form select,
+.passwords-form .upload-file {
   background: none;
   border: none;
   outline: none;
@@ -458,6 +680,24 @@ footer {
   padding: 10px 6px;
   font-size: 1rem;
   margin-bottom: 40px;
+  width: 35%;
+}
+
+@media (max-width: 992px) {
+  .login-form input,
+  .login-form textarea,
+  .login-form select,
+  .login-form .upload-file,
+  .register-form input,
+  .register-form textarea,
+  .register-form select,
+  .register-form .upload-file,
+  .passwords-form input,
+  .passwords-form textarea,
+  .passwords-form select,
+  .passwords-form .upload-file {
+    width: 80%;
+  }
 }
 
 .login-form a,
@@ -466,10 +706,81 @@ footer {
   color: #2d3436;
 }
 
+.login-form small,
+.register-form small,
+.passwords-form small {
+  color: red;
+}
+
+.login-form .is-invalid,
+.register-form .is-invalid,
+.passwords-form .is-invalid {
+  border-bottom: 1px solid red;
+}
+
+.login-form .upload-file,
+.register-form .upload-file,
+.passwords-form .upload-file {
+  width: 35%;
+  display: flex;
+  align-items: baseline;
+}
+
+@media (max-width: 992px) {
+  .login-form .upload-file,
+  .register-form .upload-file,
+  .passwords-form .upload-file {
+    width: 80%;
+  }
+}
+
+.login-form .upload-file p,
+.register-form .upload-file p,
+.passwords-form .upload-file p {
+  margin: 0;
+  cursor: pointer;
+}
+
+.login-form .upload-file input,
+.register-form .upload-file input,
+.passwords-form .upload-file input {
+  display: none;
+}
+
+.login-form .upload-file label p,
+.register-form .upload-file label p,
+.passwords-form .upload-file label p {
+  display: inline;
+}
+
+.login-form .upload-file label i::before,
+.register-form .upload-file label i::before,
+.passwords-form .upload-file label i::before {
+  width: 35px;
+  height: 35px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.login-form .upload-file.is-invalid,
+.register-form .upload-file.is-invalid,
+.passwords-form .upload-file.is-invalid {
+  color: red;
+}
+
 @media (min-width: 1150px) {
   .login-form input,
+  .login-form textarea,
+  .login-form select,
+  .login-form .upload-file,
   .register-form input,
-  .passwords-form input {
+  .register-form textarea,
+  .register-form select,
+  .register-form .upload-file,
+  .passwords-form input,
+  .passwords-form textarea,
+  .passwords-form select,
+  .passwords-form .upload-file {
     width: 25%;
   }
 }
@@ -501,19 +812,31 @@ footer {
   text-align: center;
 }
 
-.contact form button {
-  margin: auto;
+.contact form {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-.ancho-interior {
-  max-width: 600px;
-  margin: auto;
-  padding: 0, 20px;
+.contact form span {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
-.name,
-.email,
-.message {
+.contact form span.message {
+  width: 100%;
+}
+
+.contact form span small {
+  color: red;
+  align-self: flex-start;
+}
+
+.contact form input,
+.contact form textarea {
+  width: 100%;
   background: none;
   border: none;
   outline: none;
@@ -524,58 +847,40 @@ footer {
   margin-bottom: 40px;
 }
 
-.name {
-  float: left;
-  width: 270px;
+.contact form button {
+  margin: auto;
 }
 
-.email {
-  float: right;
-  width: 270px;
+.contact form .is-invalid {
+  border-bottom: 1px solid red;
 }
 
-.name-error {
-  color: red;
-  float: left;
-  width: 270px;
+.ancho-interior {
+  max-width: 600px;
+  margin: auto;
+  padding: 0, 20px;
 }
 
-.email-error {
-  color: red;
-  float: right;
-  width: 270px;
-}
-
-.message-error {
-  color: red;
-  float: center;
-  width: 100%;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-
-.message {
+textarea.message {
   min-width: 100%;
   max-width: 100%;
 }
 
 @media (max-width: 700px) {
   .contact form {
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
 
-  .name,
-  .email {
+  .contact form span {
     width: 90%;
     margin: auto;
   }
 
-  .message {
-    min-width: 90%;
-    max-width: 90%;
+  .contact form span.message {
+    width: 90%;
+    margin: auto;
   }
 }
 
@@ -586,6 +891,126 @@ footer {
   text-transform: uppercase;
   letter-spacing: 4px;
   font-weight: 400;
+}
+
+/*Estilos index admin panel*/
+
+h2.title {
+  font-size: 32px;
+  color: #2d3436;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-align: center;
+  font-weight: 400;
+}
+
+ul.items-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+}
+
+ul.items-list li {
+  width: auto;
+  min-width: 250px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 45px;
+}
+
+ul.items-list li.sales {
+  height: 600px;
+}
+
+form.single-button-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 45px;
+}
+
+span.item-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+span.item-info p {
+  max-width: 250px;
+}
+
+span.item-info p.description-paragraph {
+  height: 200px;
+  overflow: scroll;
+}
+
+span.item-info p.enum-paragraph {
+  height: 100px;
+  overflow: scroll;
+  text-transform: capitalize;
+}
+
+span.item-info img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  margin: 10px 15px;
+  align-self: center;
+}
+
+span.item-info i {
+  font-size: 50px;
+  align-self: center;
+}
+
+/*Estilos index direcciones*/
+
+form.addresses-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+form.addresses-form .address-container {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
+form.addresses-form .address-container input {
+  display: none;
+}
+
+form.addresses-form .address-container input:checked ~ label {
+  border: solid 2px #2d3436;
+}
+
+form.addresses-form .address-container label {
+  width: 100%;
+  cursor: pointer;
+  border: solid 2px #fff;
+  padding: 10px;
+  margin: 0;
+  transition: 0.4s linear;
+}
+
+form.addresses-form .address-container label:hover {
+  background-color: #2d3436;
+  color: #fff;
+}
+
+form.addresses-form .address-container button {
+  margin: 0 15px;
+  border: none;
+  background-color: #fff;
+}
+
+form.addresses-form .address-container button i {
+  font-size: 25px;
 }
 
 /*Estilos profile.php*/
@@ -599,7 +1024,7 @@ footer {
   justify-content: center;
   text-align: center;
   background-color: #e91e633b;
-  background-image: url(/images/hero-profile.jpg?1ff8d5ffb3ebe149fd764211080fde7d);
+  background-image: url(C:UsersígarÞsktoprillo-y-sustanciapublicimageshero-profile.jpg);
   background-position: center;
 }
 

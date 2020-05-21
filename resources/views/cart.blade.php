@@ -4,20 +4,13 @@
 
 @section('content')
 
-    {{-- @forelse ($products as $product)
-        {{ $product->name }}
-        <form method="post" action="{{ route('deleteFromCart', $product->url) }}">
-            @csrf @method('DELETE')
-            <button class="btn" type="submit"><i class="fas fa-ban"></i></button>
-        </form>
-        <button class="btn" onclick='minus({{$product->id}})'><i class="fas fa-minus"></i></button>
-        <input type="number" min="1" id={{$product->id . "inputdata"}} value={{ $product->pivot->quantity }}>
-        <button class="btn" onclick='plus({{$product->id}}, {{$product->stock}})'><i class="fas fa-plus"></i></button>
-    @endforelse --}}
     @if ($products->isNotEmpty())
         <form method="post" action="{{ route('checkOutCart') }}" class="container form-cart">
             @csrf
             <h2 class="title">Carrito</h2>
+            @if ($warning) 
+                <strong style="color: red">Parece que estos productos están en el carrito de más personas. Apurate!</strong>
+            @endif
             @foreach ($products as $product)
                 <div class="product-cart">
                     <div>

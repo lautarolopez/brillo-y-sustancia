@@ -8,19 +8,15 @@
 
         <h2>Ingresá</h2>
 
-        <input id="email" type="email"  name="email" placeholder="Correo electrónico"{{-- class="@error('email') is-invalid @enderror" --}} value="{{ old('email') }}" required autocomplete="email" autofocus>
         @error('email')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
+            <small>{{ $message }}</small>
         @enderror
+        <input id="email" type="email"  name="email" placeholder="Correo electrónico" class="@error('email') is-invalid @enderror" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-        <input id="password" type="password" name="password" placeholder="Contraseña" {{-- class="@error('password') is-invalid @enderror" --}} required autocomplete="current-password">
         @error('password')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
+            <small>{{ $message }}</small>
         @enderror
+        <input id="password" type="password" name="password" placeholder="Contraseña" class="@error('password') is-invalid @enderror" required autocomplete="current-password">
         
         <button type="submit" class="btn">
             Ingresá

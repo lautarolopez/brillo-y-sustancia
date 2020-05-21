@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->boolean('isAdmin');
             $table->string('profile_img_url');
+            $table->date('last_cart_update')->default(now());
             $table->rememberToken();
             $table->timestamps();
         });

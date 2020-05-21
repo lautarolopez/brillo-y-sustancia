@@ -3,11 +3,13 @@
 @import 'partials/homeHero.sass'
 @import 'partials/headbar.sass'
 @import 'partials/productCards.sass'
+@import 'partials/adminNavBar.sass'
 
 *
     padding: 0
     margin: 0
     box-sizing: border-box
+
 
 main
     min-height: calc( 100vh - 79px - 190.5px )
@@ -15,6 +17,18 @@ main
     padding-top: 40px + 16px
     @media (min-width: 992px)
         padding-top: 63px + 8px
+
+.admin-layout
+    width: 100%
+    height: 90vh
+    padding-left: 25%
+    transition: 0.4s ease-in
+    &.collapsed
+        padding-left: 0
+    @media (max-width: 992px)
+        padding-left: 0
+        margin-top: 9vh
+
 
 footer 
     border-top: solid 1px #000
@@ -74,53 +88,41 @@ footer
     font-family: "Montserrat", sans-serif
     text-align: center
     form
+        display: flex
+        justify-content: space-between
+        flex-wrap: wrap
+        span
+            width: 45%
+            display: flex
+            flex-direction: column
+            justify-content: flex-end
+            &.message
+                width: 100%
+            small
+                color: red
+                align-self: flex-start
+        input, textarea
+            width: 100%
+            background: none
+            border: none
+            outline: none
+            border-bottom: 1px solid
+            color: #333
+            padding: 10px 6px
+            font-size: 14px
+            margin-bottom: 40px
         button
             margin: auto
+        .is-invalid
+            border-bottom: 1px solid red
 
 .ancho-interior
     max-width: 600px
     margin: auto
     padding: 0, 20px
 
-.name,
-.email,
-.message 
-    background: none
-    border: none
-    outline: none
-    border-bottom: 1px solid
-    color: #333
-    padding: 10px 6px
-    font-size: 14px
-    margin-bottom: 40px
 
-.name
-    float: left
-    width: 270px
-
-.email
-    float: right
-    width: 270px
-
-.name-error
-    color: red
-    float: left
-    width: 270px
-
-.email-error
-    color: red
-    float: right
-    width: 270px
-
-
-.message-error
-    color: red
-    float: center
-    width: 100%
-    text-overflow: ellipsis
-    overflow: hidden
-
-.message
+textarea.message
     min-width: 100%
     max-width: 100%
 
@@ -128,17 +130,16 @@ footer
 @media (max-width: 700px)
     .contact 
         form
-            display: flex
             flex-direction: column
             align-items: center
             justify-content: center
-    .name,
-    .email
-        width: 90%
-        margin: auto
-    .message
-        min-width: 90%
-        max-width: 90%    
+            span
+                width: 90%
+                margin: auto
+                &.message
+                    width: 90%
+                    margin: auto
+
 
 .contact 
     h2 
@@ -149,6 +150,93 @@ footer
         letter-spacing: 4px
         font-weight: 400
 
+
+/*Estilos index admin panel*/
+h2.title
+    font-size: 32px
+    color: variables.$primary-color
+    margin-bottom: 40px
+    text-transform: uppercase
+    letter-spacing: 4px
+    text-align: center
+    font-weight: 400
+
+ul.items-list
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    list-style: none
+    li
+        width: auto
+        min-width: 250px
+        margin: 0 auto
+        display: flex
+        flex-direction: column
+        margin-bottom: 45px
+        &.sales
+            height: 600px
+
+form.single-button-form
+    display: flex
+    align-items: center
+    justify-content: center
+    margin-bottom: 45px
+
+
+span.item-info
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    p
+        max-width: 250px
+        &.description-paragraph
+            height: 200px
+            overflow: scroll
+        &.enum-paragraph
+            height: 100px
+            overflow: scroll
+            text-transform: capitalize     
+    img
+        border-radius: 50%
+        width: 150px
+        height: 150px
+        margin: 10px 15px
+        align-self: center
+    i
+        font-size: 50px
+        align-self: center
+
+
+/*Estilos index direcciones*/
+form.addresses-form
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    .address-container
+        width: 80%
+        display: flex
+        justify-content: space-between
+        input
+            display: none
+            &:checked ~ label
+                border: solid 2px variables.$primary-color
+        label
+            width: 100%
+            cursor: pointer
+            border: solid 2px #fff
+            padding: 10px
+            margin: 0
+            transition: 0.4s linear
+            &:hover 
+                background-color: variables.$primary-color
+                color: #fff
+        button
+            margin: 0 15px
+            border: none
+            background-color: #fff
+            i
+                font-size: 25px
 
 /*Estilos profile.php*/
 .hero-profile 
