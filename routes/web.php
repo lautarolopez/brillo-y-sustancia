@@ -16,6 +16,9 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
+// ruta al enviar correo
+Route::post('/send', 'ContactController@send');
+
 Route::post('/editar-perfil', 'UserController@editarPerfil');
 // Route::get('/editar-direccion', 'AddressController@editAddress');
 

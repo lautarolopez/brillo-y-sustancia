@@ -1,0 +1,7 @@
+
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=edgarsardinaoficial@gmail.com
+MAIL_PASSWORD=uvygxoruitgqaheb
+MAIL_ENCRYPTION=tls

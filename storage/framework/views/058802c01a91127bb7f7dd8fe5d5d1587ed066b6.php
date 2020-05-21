@@ -1,10 +1,10 @@
-<?php $__env->startSection('title', 'Home'); ?>
+<?php $__env->startSection('title', $product->name); ?>
 
 <?php $__env->startSection('content'); ?>
 
     <div class="container row">
         <div class="col-12 col-sm-6 mt-5 mb-5">
-            <img src="https://http2.mlstatic.com/D_NQ_NP_851565-MLA31993371778_082019-O.webp">
+            <img src=<?php echo e("../../storage/product_pictures/" . $product->img_url); ?> alt="<?php echo e($product->name); ?>">
         </div>
         <div class="col-12 mt-5 col-sm-6 mb-5">
             <h2><?php echo e($product->name); ?></h2>

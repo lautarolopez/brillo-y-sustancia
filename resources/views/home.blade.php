@@ -38,23 +38,30 @@
     <section class="contact" id="contact">
         <article class="ancho-interior">
             <h2 class="contact-title">Contactanos!</h2>
-            <form action={{route('contact.send')}} method="post">
+                @if(session()->has('success'))
+                    <div class="alert alert-success alert-dismissible fade show role="alert">
+                        {{ session()->get('success') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
+            <form action="/send" method="post">
                 @csrf
                 @error('name')
-                    <strong>{{ $message }}</strong>
+                    <p class="alert alert-danger">{{ $message }}</p>
                 @enderror
-                <input name="name" type="text" class="name @error('name') is-invalid @enderror" placeholder="Tu nombre" value= {{ old('name')}}>
                 @error('email')
-                    <strong>{{ $message }}</strong>
+                    <p class="alert alert-danger">{{ $message }}</p>
                 @enderror
-                <input name="email" type="email" class="email @error('email') is-invalid @enderror" placeholder="Tu email" value= {{ old('email')}}>
                 @error('message')
-                    <strong>{{ $message }}</strong>
+                    <p class="alert alert-danger">{{ $message }}</p>
                 @enderror
-                <textarea name= "message" placeholder="Tu mensaje" class="message @error('message') is-invalid @enderror" value= {{ old('message')}}></textarea>
+                <input name="name" type="text" class="name @error('name') is-invalid @enderror" placeholder="Tu nombre" required value= {{ old('name')}}>
+                <input name="email" type="email" class="email @error('email') is-invalid @enderror" placeholder="Tu email" required value= {{ old('email')}}>
+                <textarea name= "message" placeholder="Tu mensaje" class="message @error('message') is-invalid @enderror" required value= {{ old('message')}}></textarea>
                 <button type="submit" class="btn">Enviar</button>
             </form>
         </article>
     </section>
-    @include('partials.validation-errors')
 @stop
