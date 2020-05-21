@@ -28,7 +28,7 @@ class ContactController extends Controller {
             'message'   =>   $request->input('message')
         );
 
-        $email = 'edtejerina.work@gmail.com'; //email de prueba donde llegaran los formularios de contacto
+        $email = 'edgarsardinaoficial@gmail.com'; //email de prueba donde llegaran los formularios de contacto
 
         Mail::to($email)->send(new SendMail($data));
 
