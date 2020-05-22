@@ -30,12 +30,21 @@
             </div>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         <span class="alert"></span>
-        <a class="btn" style="margin-bottom: 30px" href=<?php echo e(route('addresses.create', [$cart])); ?>>Agregar una dirección nueva</a>
+        <a class="btn" style="margin-bottom: 30px" href="#" onclick="event.preventDefault();
+                            document.getElementById('create-form').submit()">Agregar una dirección nueva</a>
         <?php if($cart): ?>
             <button class="btn" style="margin-bottom: 30px" type="submit">Continuar</button>    
         <?php endif; ?>        
     </form>
 
+    <form id="create-form" action="<?php echo e(route('addresses.create')); ?>" method="get">
+        <?php echo csrf_field(); ?>
+        <?php if($cart): ?>
+            <input type="hidden" name="cart" value="cart">
+        <?php else: ?>
+            <input type="hidden" name="cart" value="no-cart">
+        <?php endif; ?>
+    </form>
 <script>
     let formAddresses = document.querySelector('form.addresses-form'); 
     formAddresses.addEventListener('submit', (e) => {

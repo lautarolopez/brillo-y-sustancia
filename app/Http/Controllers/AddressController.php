@@ -18,7 +18,12 @@ class AddressController extends Controller
     }
 
 
-    public function create(Request $cart){
+    public function create(Request $req){
+        if ($req['cart'] === 'cart'){
+            $cart = true;
+        } else {
+            $cart = false;
+        }
         return view('addresses.create', [
             'address' => new Address,
             'cart' => $cart,
