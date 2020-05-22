@@ -4,14 +4,14 @@
 
 @section('content')
   <section class="products-container">
-    <h2>{{$category}}</h2>
+    <h2 class="center">{{$category}}</h2>
     <ul class="product-list">
         @forelse ($products as $product)
           <li>
             <article class="product-card">
               <a class="img-container" href="{{route('products.show', $product)}}">
                 @if ($product->stock !== 0)
-                  <img src= {{"../../storage/product_pictures/" . $product->img_url }} alt= {{ $product->name }}}> 
+                  <img src="/storage/product_pictures/{{$product->img_url}}" alt="{{$product->name}}">
                 @else
                   <img class="no-stock" src= {{"../../storage/product_pictures/" . $product->img_url }} alt= {{ $product->name }}}>
                 @endif

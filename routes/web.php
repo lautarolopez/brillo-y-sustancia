@@ -18,8 +18,7 @@ Route::get('/', function () {
 
 // ruta al enviar correo
 Route::post('/send', 'ContactController@send');
-
-Route::post('/editar-perfil', 'UserController@editarPerfil');
+Route::post('/editar-perfil','UserController@editarPerfil')->name('editarPerfil');
 
 Route::get('/perfil', function(){
     $user = Auth::user();

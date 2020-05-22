@@ -24,26 +24,20 @@ class UserController extends Controller
     }
 
     public function editarPerfil(Request $form){
-
-        $reglas = [
-            'name' => ['required', 'string', 'max:255'],
-            'last_name' => ['string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ];
-        $this->validate($form, $reglas);
-            
-        $ruta = $form->file('profile_img')->store('public/user_profile_pictures');
-        $user = User::find($form->id);
-        $user->name = $form->name;
-        $user->last_name = $form->last_name;
-        $user->email = $form->email;
-        $user->profile_img_url = basename($ruta);
+        
+        $user = User::find($form['id']);
+        $user->name = $form['name'];
+        $user->last_name = $form['last_name'];
+        $user->email = $form['email'];
+        if($form['profile_img']){
+            $path = $form->file('profile_img')->store('public/user_profile_pictures');
+            $user->profile_img_url = basename($path);
+        }
         if($form->password){
-            $user->password = Hash::make($form->password);
+            $user->password = Hash::make($form['password']);
         }
         $user->save();
 
-        return redirect('/perfil');
+        return redirect()->back();
     }
 }

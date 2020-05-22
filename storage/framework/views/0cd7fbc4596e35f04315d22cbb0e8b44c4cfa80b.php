@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', 'Home'); ?>
+<?php $__env->startSection('title', 'Perfil'); ?>
 
 <?php $__env->startSection('content'); ?>
 
@@ -16,14 +16,14 @@
             <div class="list-group" id="list-tab" role="tablist">
             <a class="list-group-item list-group-item-action list-group-item-dark active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Home</a>
             <a class="list-group-item list-group-item-action list-group-item-dark" id="list-editar-list" data-toggle="list" href="#list-editar" role="tab" aria-controls="editar">Editar perfil</a>
-            <a class="list-group-item list-group-item-action list-group-item-dark" id="list-direcciones-list" data-toggle="list" href="#list-direcciones" role="tab" aria-controls="direcciones">Direcciones</a>
+            <a class="list-group-item list-group-item-action list-group-item-dark" id="list-direcciones-list" data-toggle="list" href="/mis-direcciones" role="tab" aria-controls="direcciones">Direcciones</a>
             </div>
         </div>
         <div class="col-12 col-md-8">
             <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list"></div>
             <div class="tab-pane fade" id="list-editar" role="tabpanel" aria-labelledby="list-editar-list">
-                <form action="/editar-perfil" method="POST" class="edit-profile" enctype="multipart/form-data">
+                <form  method="POST" action="<?php echo e(route('editarPerfil')); ?>" class="edit-profile" enctype="multipart/form-data">
                     <?php echo csrf_field(); ?>
                     <input type="text" name="id" value="<?php echo e($user->id); ?>" style="display:none">
                     <div class="form-group">
@@ -52,36 +52,8 @@
                     <button type="submit" class="btn radius-none btn-primary mb-2">Guardar cambios</button>
                 </form>
             </div>
-            <div class="tab-pane fade" id="list-direcciones" role="tabpanel" aria-labelledby="list-direcciones-list">
-                <form action="/editar-direccion" method="POST" class="edit-profile">
-                        <?php echo csrf_field(); ?>
-
-                        <p>en desarrollo</p>
-                        <input type="text" name="id" value="<?php echo e($user->id); ?>" style="display:none">
-                        <div class="form-group">
-                            <label for="street">Calle</label>
-                            <input type="number" class="form-control" id="street" name="street" value="<?php echo e($user->name); ?>" required>
-                            </div>
-                        <div class="form-group">
-                            <label for="address_number">Numero</label>
-                            <input type="number" class="form-control" id="address_number" name="address_number" value="<?php echo e($user->last_name); ?>" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="floor">Piso</label>
-                            <input type="number" class="form-control" id="floor" name="floor" value="<?php echo e($user->email); ?>" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="departament">Departamento</label>
-                            <input type="text" class="form-control" id="departament" name="departament  " required>
-                        </div>
-                        <button type="submit" class="btn radius-none btn-primary mb-2">Guardar cambios</button>
-                </form>
-            </div>
-
         </div>
     </div>
-<?php else: ?>
-    <strong>QUE HACÉS ACÁ CONECTATE POR DIOS PAPÁ</strong>
 <?php endif; ?>
 
 <?php $__env->stopSection(); ?>

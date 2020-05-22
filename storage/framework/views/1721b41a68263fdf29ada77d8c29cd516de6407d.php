@@ -1,11 +1,10 @@
+<?php $__env->startSection('title', 'Panel de administración'); ?>
 <?php $__env->startSection('content'); ?>
 
 
 
 
-    <h1 style="font-size: 100px">BENVENUTI</h1>
-
-
+    <h1>BENVENUTI</h1>
 
 
 <?php $__env->stopSection(); ?>
