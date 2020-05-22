@@ -169,7 +169,8 @@ section.products-container {
   margin-top: 60px;
 }
 
-section.products-container h2 {
+section.products-container h2.center {
+  width: 100%;
   font-size: 32px;
   color: #2d3436;
   margin-bottom: 40px;
@@ -180,6 +181,7 @@ section.products-container h2 {
 }
 
 section.products-container ul {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -205,6 +207,11 @@ section.products-container ul li {
     margin: 5% 5%;
     width: 90%;
   }
+}
+
+img.no-stock {
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
 }
 
 article.product-card {
@@ -243,11 +250,6 @@ article.product-card a.img-container img {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
-}
-
-article.product-card a.img-container img.no-stock {
-  -webkit-filter: grayscale(100%);
-          filter: grayscale(100%);
 }
 
 article.product-card a {
@@ -1128,7 +1130,6 @@ form.addresses-form .address-container button i {
   justify-content: center;
   text-align: center;
   background-color: #e91e633b;
-  background-image: url(/images/hero-profile.jpg?1ff8d5ffb3ebe149fd764211080fde7d);
   background-position: center;
 }
 
