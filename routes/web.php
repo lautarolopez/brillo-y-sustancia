@@ -24,7 +24,11 @@ Route::post('/editar-perfil','UserController@editarPerfil')->name('editarPerfil'
 
 Route::get('/perfil', function(){
     $user = Auth::user();
-    return view('profile', compact('user'));
+    $addresses = $user->addresses()->get();
+    return view('profile', [
+        'user' => $user,
+        'addresses' => $addresses,
+    ]);
 })->name('profile');
 
 Route::get('/carrito', 'CartController@show')->name('cart');

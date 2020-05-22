@@ -2,14 +2,14 @@
 
 <?php $__env->startSection('content'); ?>
   <section class="products-container">
-    <h2><?php echo e($category); ?></h2>
+    <h2 class="center"><?php echo e($category); ?></h2>
     <ul class="product-list">
         <?php $__empty_1 = true; $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
           <li>
             <article class="product-card">
               <a class="img-container" href="<?php echo e(route('products.show', $product)); ?>">
                 <?php if($product->stock !== 0): ?>
-                  <img src= <?php echo e("../../storage/product_pictures/" . $product->img_url); ?> alt= <?php echo e($product->name); ?>}> 
+                  <img src="/storage/product_pictures/<?php echo e($product->img_url); ?>" alt="<?php echo e($product->name); ?>">
                 <?php else: ?>
                   <img class="no-stock" src= <?php echo e("../../storage/product_pictures/" . $product->img_url); ?> alt= <?php echo e($product->name); ?>}>
                 <?php endif; ?>
@@ -35,7 +35,7 @@
             </article>
           </li>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
-          <p>No hay nada para mostrar</p>
+          <h2 class="title">Todavía no tenemos productos disponibles</h2>
         <?php endif; ?>
     </ul>
     <div class="pagination-container">

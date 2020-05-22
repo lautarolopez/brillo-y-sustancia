@@ -23,7 +23,7 @@ class CartController extends Controller
             $user->cart()->attach($products[0], array('quantity' => 1));
         }        
         $user->update(['last_update-cart' => now()]); 
-        return redirect()->route('products.show', $product_name);
+        return redirect()->back();
     }
 
     public function removeFromCart(Request $req){

@@ -18,7 +18,7 @@
             <div class="list-group" id="list-tab" role="tablist">
             <a class="list-group-item list-group-item-action list-group-item-dark active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Home</a>
             <a class="list-group-item list-group-item-action list-group-item-dark" id="list-editar-list" data-toggle="list" href="#list-editar" role="tab" aria-controls="editar">Editar perfil</a>
-            <a class="list-group-item list-group-item-action list-group-item-dark" id="list-direcciones-list" data-toggle="list" href="/mis-direcciones" role="tab" aria-controls="direcciones">Direcciones</a>
+            <a class="list-group-item list-group-item-action list-group-item-dark" id="list-direcciones-list" data-toggle="list" href="#list-direcciones" role="tab" aria-controls="direcciones">Direcciones</a>
             </div>
         </div>
         <div class="col-12 col-md-8">
@@ -53,6 +53,12 @@
                     </div>
                     <button type="submit" class="btn radius-none btn-primary mb-2">Guardar cambios</button>
                 </form>
+            </div>
+            <div class="tab-pane fade" id="list-direcciones" role="tabpanel" aria-labelledby="list-direcciones-list">
+                @include('addresses.index_without_layout', [
+                    'cart' => false,
+                    'addresses' => $addresses
+                ]);
             </div>
         </div>
     </div>
