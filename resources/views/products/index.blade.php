@@ -37,7 +37,7 @@
             </article>
           </li>
         @empty
-          <p>No hay nada para mostrar</p>
+          <h2 class="title">Todavía no tenemos productos disponibles</h2>
         @endforelse
     </ul>
     <div class="pagination-container">

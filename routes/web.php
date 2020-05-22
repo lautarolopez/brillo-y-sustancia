@@ -15,7 +15,9 @@
 Route::get('/', function () {
     return view('home');
 })->name('home');
-
+Route::post('/procesar-pago', 'SalesController@successMercadoPagoPayment');
+Route::get('/payment-success', 'SalesController@paymentSuccess');
+Route::get('/payment-failure', 'SalesController@paymentFailure');
 // ruta al enviar correo
 Route::post('/send', 'ContactController@send');
 
@@ -33,7 +35,7 @@ Route::delete('/carrito/eliminar', 'CartController@removeFromCart')->name('delet
 Route::post('/', 'ContactController@store')->name('home');
 Route::post('/#contact', 'ContactController@store')->name('contact.send');
 Route::post('/realizar-compra', 'SalesController@CheckOutCart')->name('checkOutCart');
-Route::post('/finalizar-compra', 'SalesController@completeSale')->name('completeSale');
+Route::post('/finalizar-compra', 'SalesController@redirectToMercadoPago')->name('redirectToMercadoPago');
 Route::resource('productos', 'ProductController')->names([
     'index' => 'products.index',
     'show' => 'products.show',

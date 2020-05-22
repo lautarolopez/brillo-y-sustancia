@@ -4,7 +4,7 @@
 
 
 
-    <h1>BENVENUTI</h1>
+    <h2 class="title">Bienvenido al panel de administración de la tienda <strong>Brillo y Sustancia</strong></h2>
 
 
 <?php $__env->stopSection(); ?>

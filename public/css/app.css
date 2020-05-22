@@ -458,6 +458,7 @@ nav.admin-navbar ul a.logo:hover {
     height: auto;
     padding: 0;
     margin: 0;
+    color: #2d3436;
   }
 
   nav.admin-navbar ul a li {
@@ -544,7 +545,7 @@ main {
 
 @media (min-width: 992px) {
   main {
-    padding-top: 71px;
+    padding-top: 63px;
   }
 }
 
@@ -552,18 +553,100 @@ main {
   width: 100%;
   height: 90vh;
   padding-left: 25%;
+  padding-right: 5%;
   transition: 0.4s ease-in;
 }
 
 .admin-layout.collapsed {
-  padding-left: 0;
+  padding: 0 5%;
 }
 
 @media (max-width: 992px) {
   .admin-layout {
-    padding-left: 0;
+    padding: 0 5%;
     margin-top: 9vh;
   }
+}
+
+div.mp-logo-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15vh 0;
+}
+
+div.mp-logo-container img.mp-logo {
+  width: 30%;
+}
+
+div.span-container {
+  position: fixed;
+  top: 12vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 998;
+}
+
+span.success,
+span.failure {
+  color: #fff;
+  font-size: 25px;
+  z-index: 999;
+  padding: 0 15px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  transition: 0.8s ease-in;
+  transform: scale(0);
+}
+
+span.success p,
+span.failure p {
+  margin: 0;
+}
+
+span.success i:before,
+span.failure i:before {
+  width: 35px;
+  height: 35px;
+  margin: 7px;
+}
+
+span.success {
+  background: #00b894;
+  background: linear-gradient(0deg, #00b894 0%, #55efc4 100%);
+  border: solid 2px white;
+  border-radius: 75px;
+  align-self: baseline;
+}
+
+span.success i {
+  padding-top: 5px;
+}
+
+span.failure {
+  background: #d63031;
+  background: linear-gradient(0deg, #d63031 0%, #ff7675 100%);
+  border: solid 2px white;
+  border-radius: 75px;
+  align-self: center;
+}
+
+span.failure i {
+  padding-top: 8px;
+}
+
+span.success.appear,
+span.failure.appear {
+  transform: scale(1);
+}
+
+span.success.vanish,
+span.failure.vanish {
+  transform: scale(0);
 }
 
 footer {
@@ -710,6 +793,15 @@ footer {
 .register-form small,
 .passwords-form small {
   color: red;
+  width: 35%;
+}
+
+@media (max-width: 992px) {
+  .login-form small,
+  .register-form small,
+  .passwords-form small {
+    width: 80%;
+  }
 }
 
 .login-form .is-invalid,
@@ -773,14 +865,17 @@ footer {
   .login-form textarea,
   .login-form select,
   .login-form .upload-file,
+  .login-form small,
   .register-form input,
   .register-form textarea,
   .register-form select,
   .register-form .upload-file,
+  .register-form small,
   .passwords-form input,
   .passwords-form textarea,
   .passwords-form select,
-  .passwords-form .upload-file {
+  .passwords-form .upload-file,
+  .passwords-form small {
     width: 25%;
   }
 }
@@ -882,6 +977,11 @@ textarea.message {
     width: 90%;
     margin: auto;
   }
+
+  textarea.message {
+    min-width: 90%;
+    max-width: 90%;
+  }
 }
 
 .contact h2 {
@@ -922,6 +1022,10 @@ ul.items-list li {
 }
 
 ul.items-list li.sales {
+  height: 600px;
+}
+
+ul.items-list li.sales span.item-info {
   height: 600px;
 }
 

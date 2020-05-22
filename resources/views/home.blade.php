@@ -3,7 +3,16 @@
 @section('title', 'Home')
 
 @section('content')
-
+    @if (session()->pull('sale_success')) 
+        <div class="span-container">
+            <span class="success"><p>Compra finalizada! </p><i class="far fa-thumbs-up"></i></span>
+        </div>
+    @endif
+    @if (session()->pull('sale_failure', false))
+        <div class="span-container">
+            <span class="failure"><p>Compra rechazada </p><i class="far fa-thumbs-down"></i></span>
+        </div>
+    @endif
     <section class="social-container">
         <img src="../storage/PrideBackground.png" alt="pride-background">
         <span>
@@ -48,20 +57,43 @@
                 @endif
             <form action="/send" method="post">
                 @csrf
-                @error('name')
-                    <p class="alert alert-danger">{{ $message }}</p>
-                @enderror
-                @error('email')
-                    <p class="alert alert-danger">{{ $message }}</p>
-                @enderror
+                <span>
+                    @error('name')
+                        <small class="alert alert-danger">{{ $message }}</small>
+                    @enderror
+                    <input name="name" type="text" class="name @error('name') is-invalid @enderror" placeholder="Tu nombre" required value= {{ old('name')}}>
+                </span>
+                
+                <span>
+                    @error('email')
+                        <small class="alert alert-danger">{{ $message }}</small>
+                    @enderror
+                    <input name="email" type="email" class="email @error('email') is-invalid @enderror" placeholder="Tu email" required value= {{ old('email')}}>
+                </span>
+                
                 @error('message')
-                    <p class="alert alert-danger">{{ $message }}</p>
+                    <small class="alert alert-danger">{{ $message }}</small>
                 @enderror
-                <input name="name" type="text" class="name @error('name') is-invalid @enderror" placeholder="Tu nombre" required value= {{ old('name')}}>
-                <input name="email" type="email" class="email @error('email') is-invalid @enderror" placeholder="Tu email" required value= {{ old('email')}}>
                 <textarea name= "message" placeholder="Tu mensaje" class="message @error('message') is-invalid @enderror" required value= {{ old('message')}}></textarea>
                 <button type="submit" class="btn">Enviar</button>
             </form>
         </article>
     </section>
+
+<script>
+    let div = document.querySelector('div.span-container');
+    if (div){
+        let span = div.firstElementChild;
+        setTimeout(() => {
+            span.classList.add('appear');
+        }, 1);
+        setTimeout(() => {
+            span.classList.remove('appear');
+            span.classList.add('vanish');
+        }, 7000);
+        setTimeout(() => {
+            div.parentNode.removeChild(div);
+        }, 7100);
+    }    
+</script>
 @stop

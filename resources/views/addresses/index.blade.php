@@ -9,7 +9,7 @@
     @else
         <h2 class="title">Mis direcciones</h2>
     @endif
-    <form class="addresses-form" action="{{route('completeSale')}}" method="post">
+    <form class="addresses-form" action="{{route('redirectToMercadoPago')}}" method="post">
         @csrf
         @foreach ($addresses as $address)
             <div class="address-container">

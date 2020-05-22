@@ -16,19 +16,79 @@ main
     font-family: variables.$primary-font
     padding-top: 40px + 16px
     @media (min-width: 992px)
-        padding-top: 63px + 8px
+        padding-top: 63px
 
 .admin-layout
     width: 100%
     height: 90vh
     padding-left: 25%
+    padding-right: 5%
     transition: 0.4s ease-in
     &.collapsed
-        padding-left: 0
+        padding: 0 5%
     @media (max-width: 992px)
-        padding-left: 0
+        padding: 0 5%
         margin-top: 9vh
 
+div.mp-logo-container
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: center
+    margin: 15vh 0
+    img.mp-logo
+        width: 30%
+
+div.span-container
+    position: fixed
+    top: 12vh
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: center
+    z-index:998
+
+span.success, span.failure
+    color: #fff
+    font-size: 25px
+    z-index: 999
+    padding: 0 15px
+    display: flex
+    justify-content: center
+    text-align: center
+    transition: 0.8s ease-in
+    transform: scale(0)
+    p
+        margin: 0
+    i:before
+        width: 35px
+        height: 35px
+        margin: 7px
+
+span.success
+    background: rgb(0,184,148)
+    background: linear-gradient(0deg, rgba(0,184,148,1) 0%, rgba(85,239,196,1) 100%)
+    border: solid 2px white
+    border-radius: 75px
+    align-self: baseline
+    i
+        padding-top: 5px
+
+
+span.failure
+    background: rgb(214,48,49)
+    background: linear-gradient(0deg, rgba(214,48,49,1) 0%, rgba(255,118,117,1) 100%)
+    border: solid 2px white
+    border-radius: 75px
+    align-self: center
+    i
+        padding-top: 8px
+
+span.success.appear, span.failure.appear
+    transform: scale(1)
+
+span.success.vanish, span.failure.vanish
+    transform: scale(0)
 
 footer 
     border-top: solid 1px #000
@@ -139,7 +199,9 @@ textarea.message
                 &.message
                     width: 90%
                     margin: auto
-
+    textarea.message
+        min-width: 90%
+        max-width: 90%
 
 .contact 
     h2 
@@ -175,6 +237,8 @@ ul.items-list
         margin-bottom: 45px
         &.sales
             height: 600px
+            span.item-info
+                height: 600px
 
 form.single-button-form
     display: flex
