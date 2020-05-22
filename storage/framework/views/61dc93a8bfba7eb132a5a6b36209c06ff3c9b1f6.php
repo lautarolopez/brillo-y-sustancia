@@ -13,10 +13,10 @@
                     <p><?php echo e($sale['address']->street . ", " . $sale['address']->address_number); ?>
 
                         <?php if($sale['address']->floor): ?>
-                            piso <?php echo e($sale['address']->floor); ?><br>
+                            <p>piso <?php echo e($sale['address']->floor); ?></p>
                         <?php endif; ?>
                         <?php if($sale['address']->departament): ?>
-                            depto. <?php echo e($sale['address']->departament); ?><br>
+                            <p>depto. <?php echo e($sale['address']->departament); ?></p>
                         <?php endif; ?>
                     </p>
                     <strong>Fecha de compra:</strong>

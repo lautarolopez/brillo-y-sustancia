@@ -66,6 +66,9 @@
         color: variables.$primary-color
     small
         color: red
+        width: 35%
+        @media (max-width: 992px)
+            width: 80%
     .is-invalid
         border-bottom: 1px solid red
     .upload-file
@@ -91,7 +94,7 @@
         color: red
 
     @media (min-width: 1150px)
-        input, textarea, select, .upload-file
+        input, textarea, select, .upload-file, small
             width: 25%
     
         

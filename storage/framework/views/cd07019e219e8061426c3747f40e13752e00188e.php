@@ -7,7 +7,7 @@
     <?php else: ?>
         <h2 class="title">Mis direcciones</h2>
     <?php endif; ?>
-    <form class="addresses-form" action="<?php echo e(route('completeSale')); ?>" method="post">
+    <form class="addresses-form" action="<?php echo e(route('redirectToMercadoPago')); ?>" method="post">
         <?php echo csrf_field(); ?>
         <?php $__currentLoopData = $addresses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $address): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="address-container">

@@ -13,10 +13,10 @@
                     <strong>Dirección:</strong>
                     <p>{{$sale['address']->street . ", " . $sale['address']->address_number}}
                         @if ($sale['address']->floor)
-                            piso {{$sale['address']->floor}}<br>
+                            <p>piso {{$sale['address']->floor}}</p>
                         @endif
                         @if ($sale['address']->departament)
-                            depto. {{$sale['address']->departament}}<br>
+                            <p>depto. {{$sale['address']->departament}}</p>
                         @endif
                     </p>
                     <strong>Fecha de compra:</strong>
